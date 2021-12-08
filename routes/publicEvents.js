@@ -2,7 +2,7 @@ const router = require('express').Router()
 const PublicEvent = require('../models/PublicEvent')
 
 // get all public Events
-router.get('/', (req, res, next) => {
+router.get('/events', (req, res, next) => {
 	PublicEvent.find()
 		.then(publicEvents => {
 			res.status(200).json(publicEvents)
@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
 // get all tasks for a specific public Event 
 
 // create a public Event
-router.post('/', (req, res, next) => {
+router.post('/events', (req, res, next) => {
 	const { title, description } = req.body
 	PublicEvent.create({ title, description })
 		.then(publicEvent => {
@@ -23,7 +23,7 @@ router.post('/', (req, res, next) => {
 });
 
 // get a specific public Event
-router.get('/:id', (req, res, next) => {
+router.get('/events/:id', (req, res, next) => {
 	PublicEvent.findById(req.params.id)
 		.then(publicEvent => {
 			

@@ -13,9 +13,51 @@ router.get('/events', (req, res, next) => {
 // get all tasks for a specific public Event 
 
 // create a public Event
-router.post('/events', (req, res, next) => {
-	const { title, description } = req.body
-	PublicEvent.create({ title, description })
+router.post('/create/public', (req, res, next) => {
+
+	const { title, date, time, address:{ street, number, zipcode, 
+		city }, category: { music: { musicGenre, musicType }, culture:{ cultureGenre, cultureType }, 
+		sport: { sportGenre, sportType }, education: { educationGenre, educationType }, other: { other } },
+		description, price } = req.body
+
+	PublicEvent.create({ 
+		title: title,
+		date: date,
+		time: time, 
+
+		address: {
+		  street: street,
+          number: number,
+          zipcode: zipcode,
+          city: city,
+		}, 
+
+		category: {
+
+		  music: {
+			  musicGenre: musicGenre, 
+			  musicType: musicType},
+
+		  culture: {
+			  cultureGenre: cultureGenre, 
+			  cultureType: cultureType},
+
+		  sport: {
+			  sportGenre: sportGenre, 
+			  sportType: sportType},
+
+		  education:{
+			  educationGenre: educationGenre,
+			  educationType: educationType},
+
+		  other: {other: other}
+
+		}, 
+
+		description: description, 
+		price: price, 
+		
+	})
 		.then(publicEvent => {
 			res.status(201).json(publicEvent)
 		})

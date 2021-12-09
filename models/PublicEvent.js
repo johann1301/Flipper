@@ -10,7 +10,8 @@ const publicEventSchema = new Schema({
 		zipcode: Number,
 		city: String,
 	},
-	category: {
+	category: String,
+	options: {
 		music: {musicGenre: String, musicType: String},
 		culture: {cultureGenre: String, cultureType: String},
 		sport: { sportGenre: String, sportType: String},

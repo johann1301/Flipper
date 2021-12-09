@@ -16,7 +16,7 @@ router.get('/events', (req, res, next) => {
 router.post('/create/public', (req, res, next) => {
 
 	const { title, date, time, address:{ street, number, zipcode, 
-		city }, category: { music: { musicGenre, musicType }, culture:{ cultureGenre, cultureType }, 
+		city }, category, options: { music: { musicGenre, musicType }, culture:{ cultureGenre, cultureType }, 
 		sport: { sportGenre, sportType }, education: { educationGenre, educationType }, other: { other } },
 		description, price } = req.body
 
@@ -32,7 +32,9 @@ router.post('/create/public', (req, res, next) => {
           city: city,
 		}, 
 
-		category: {
+		category: category,
+
+		options: {
 
 		  music: {
 			  musicGenre: musicGenre, 

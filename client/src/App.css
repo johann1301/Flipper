@@ -1,3 +1,7 @@
+/* *{
+  border: 3px solid red
+} */
+
 .App {
   text-align: center;
 }
@@ -82,3 +86,95 @@ margin-top: 20px;
   align-items: center;
 }
 
+
+/* Add Event Form */
+
+.form{
+  background-color: #363636;
+  width: 50%;
+  padding: 100px;
+  border-radius: 20px;
+  box-shadow: 0px 3px 21px 3px rgba(0,0,0,0.63); 
+  margin: 10% 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.formInput{
+  background: none;
+  border: none;
+  border: 3px solid white;
+  width: 60%;
+  color: white;
+  outline: none;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0px 3px 20px -5px grey;
+  font-weight: bold;
+  font-size: 20px;
+
+}
+
+.createHeadline{
+  color: white;
+  font-weight: bold;
+  margin-top: -30px;
+  margin-bottom: 50px;
+  font-size: 60px;
+  text-decoration: underline white;
+}
+
+
+
+::placeholder{
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+
+
+}
+
+/* Address */
+
+.addressHeadline{
+  color: white;
+  font-weight: bold;
+}
+
+.addAddress{
+  display: flex;
+  justify-content: center;
+  width: 68%;
+}
+
+.formInputNum{
+  background: none;
+  border: none;
+  border: 3px solid white;
+  width: 60%;
+  color: white;
+  outline: none;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0px 3px 20px -5px grey;
+  font-weight: bold;
+  font-size: 20px;
+  width: 25%;
+
+}
+
+/* Category */
+
+.categoryHeadline{
+  color: white;
+  font-weight: bold;
+  margin: 50px;
+}
+
+.selector{
+  background-color: #363636;
+}

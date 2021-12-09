@@ -7,6 +7,7 @@ import CreateEvent from './pages/CreateEvent';
 import Navbar from './components/Navbar'
 import AddPublicEvent from './components/AddPublicEvent';
 
+
 function App() {
   return (
     <div className="App">
@@ -17,7 +18,7 @@ function App() {
         <Route path='/events' element={<EventList />} />
         <Route path='/events/:id' element={<EventDetails />} />
         <Route path='/create' element={<CreateEvent />} />
-        <Route path='/create/public' element={<AddPublicEvent />} />
+        <Route path='/create/public' element={<AddPublicEvent  />} />
       </Routes>
 
     </div>

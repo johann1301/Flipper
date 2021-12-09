@@ -2,15 +2,17 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 
-export default function AddPublicEvent(props) {
+
+export default function AddPublicEvent() {
 
 	const [title, setTitle] = useState('')
 	const [date, setDate] = useState('')
-	const [time, setTime] = useState(0)
+	const [time, setTime] = useState('')
 	const [street, setStreet] = useState('')
 	const [number, setNumber] = useState('')
-	const [zipcode, setZipcode] = useState(0)
+	const [zipcode, setZipcode] = useState('')
 	const [city, setCity] = useState('')
+	const [category, setCategory] = useState('')
 	const [musicGenre, setMusicGenre] = useState('')
 	const [musicType, setMusicType] = useState('')
 	const [cultureGenre, setCultureGenre] = useState('')
@@ -21,14 +23,14 @@ export default function AddPublicEvent(props) {
 	const [educationType, setEducationType] = useState('')
 	const [other, setOther] = useState('')
 	const [description, setDescription] = useState('')
-	const [price, setPrice] = useState(0)
+	const [price, setPrice] = useState('')
 	
 	
 	
 	
 
 	
-	console.log(number)
+
 	
 
     const handleSubmit = e => {
@@ -36,7 +38,7 @@ export default function AddPublicEvent(props) {
 	  e.preventDefault()
 
       const requestBody = { title, date, time, address:{ street, number, zipcode, 
-		city }, category: { music: { musicGenre, musicType }, culture:{ cultureGenre, cultureType }, 
+		city }, category, options: { music: { musicGenre, musicType }, culture:{ cultureGenre, cultureType }, 
 		sport: { sportGenre, sportType }, education: { educationGenre, educationType }, other: { other } },
 		description, price }
 
@@ -53,13 +55,16 @@ export default function AddPublicEvent(props) {
 }
 
 	return (
-		<div>
+		<div >
 
-          <h1>Add public event</h1>
+          
 
-		  <form onSubmit={handleSubmit}>
-            <label htmlFor='title'></label>
+		  <form class='form' onSubmit={handleSubmit}>
+		    <h1 class='createHeadline'>Public event</h1>
+
+            
 			<input 
+			class='formInput'
 			  id='title'
 			  type='text'
 			  value={title}
@@ -67,8 +72,9 @@ export default function AddPublicEvent(props) {
 			  onChange={e => setTitle(e.target.value)}
 			 />
 
-			<label htmlFor='date'></label>
+			
 			<input 
+			class='formInput'
 			  id='date'
 			  type='text'
 			  value={date}
@@ -76,8 +82,9 @@ export default function AddPublicEvent(props) {
 			  onChange={e => setDate(e.target.value)}
 			 />
 
-            <label htmlFor='time'>Date:</label>
+            
 			<input 
+			class='formInput'
 			  id='time'
 			  type='number'
 			  value={time}
@@ -85,8 +92,13 @@ export default function AddPublicEvent(props) {
 			  onChange={e => setTime(e.target.value)}
 			 />
 
-            <label htmlFor='street'>Street:</label>
+			 <h2 class='addressHeadline'>Address:</h2>
+
+          <div class='addAddress'>
+
+            
 			<input 
+			class='formInput'
 			  id='street'
 			  type='text'
 			  value={street}
@@ -94,8 +106,9 @@ export default function AddPublicEvent(props) {
 			  onChange={e => setStreet(e.target.value)}
 			 />
 
-            <label htmlFor='number'>Number:</label>
+            
 			<input 
+			class='formInputNum'
 			  id='number'
 			  type='number'
 			  value={number}
@@ -103,8 +116,13 @@ export default function AddPublicEvent(props) {
 			  onChange={e => setNumber(e.target.value)}
 			 />
 
-            <label htmlFor='zipcode'>Zipcode:</label>
+          </div>
+
+		  <div class='addAddress'>
+
+            
 			<input 
+			class='formInputNum'
 			  id='zipcode'
 			  type='number'
 			  value={zipcode}
@@ -112,8 +130,8 @@ export default function AddPublicEvent(props) {
 			  onChange={e => setZipcode(e.target.value)}
 			 />
 
-            <label htmlFor='city'>City:</label>
 			<input 
+			class='formInput'
 			  id='city'
 			  type='text'
 			  value={city}
@@ -121,8 +139,28 @@ export default function AddPublicEvent(props) {
 			  onChange={e => setCity(e.target.value)}
 			 />
 
-            <label htmlFor='musicGenre'>musicGenre:</label>
+          </div>
+
+		  <h2 class='categoryHeadline'>What kind of event are you hosting?</h2>
+           
+		    <select class='formInput' onChange={e => setCategory(e.target.value)} name="category">
+		
+		       <option class='selector' value="">-Category-</option>
+		       <option class='selector' value="music">Music</option>
+		       <option class='selector' value="culture">Culture</option>
+		       <option class='selector' value="sport">Sport</option>
+		       <option class='selector' value="education">Education</option>
+		       <option class='selector' value="other">Other</option>
+		       
+	
+            </select>
+
+
+
+
+            
 			<input 
+			class='formInput'
 			  id='musicGenre'
 			  type='text'
 			  value={musicGenre}
@@ -130,17 +168,18 @@ export default function AddPublicEvent(props) {
 			  onChange={e => setMusicGenre(e.target.value)}
 			 />
 
-            <label htmlFor='musicType'>musicType:</label>
+            
 			<input 
+			class='formInput'
 			  id='musicType'
 			  type='text'
 			  value={musicType}
 			  placeholder="musicType"
 			  onChange={e => setMusicType(e.target.value)}
 			 />
-
-            <label htmlFor='cultureGenre'>cultureGenre:</label>
+            
 			<input 
+			class='formInput'
 			  id='cultureGenre'
 			  type='text'
 			  value={cultureGenre}
@@ -148,8 +187,9 @@ export default function AddPublicEvent(props) {
 			  onChange={e => setCultureGenre(e.target.value)}
 			 />
 
-            <label htmlFor='cultureType'>cultureType:</label>
+            
 			<input 
+			class='formInput'
 			  id='cultureType'
 			  type='text'
 			  value={cultureType}
@@ -157,8 +197,9 @@ export default function AddPublicEvent(props) {
 			  onChange={e => setCultureType(e.target.value)}
 			 />
 
-            <label htmlFor='sportGenre'>sportGenre:</label>
+            
 			<input 
+			class='formInput'
 			  id='sportGenre'
 			  type='text'
 			  value={sportGenre}
@@ -166,8 +207,9 @@ export default function AddPublicEvent(props) {
 			  onChange={e => setSportGenre(e.target.value)}
 			 />
 
-            <label htmlFor='sportType'>sportType:</label>
+            
 			<input 
+			class='formInput'
 			  id='sportType'
 			  type='text'
 			  value={sportType}
@@ -175,8 +217,9 @@ export default function AddPublicEvent(props) {
 			  onChange={e => setSportType(e.target.value)}
 			 />
 
-            <label htmlFor='educationGenre'>educationGenre:</label>
+            
 			<input 
+			class='formInput'
 			  id='educationGenre'
 			  type='text'
 			  value={educationGenre}
@@ -184,8 +227,9 @@ export default function AddPublicEvent(props) {
 			  onChange={e => setEducationGenre(e.target.value)}
 			 />
 
-            <label htmlFor='educationType'>educationType:</label>
+            
 			<input 
+			class='formInput'
 			  id='educationType'
 			  type='text'
 			  value={educationType}
@@ -193,8 +237,9 @@ export default function AddPublicEvent(props) {
 			  onChange={e => setEducationType(e.target.value)}
 			 />
 
-            <label htmlFor='other'>Other:</label>
+            
 			<input 
+			class='formInput'
 			  id='other'
 			  type='text'
 			  value={other}
@@ -202,8 +247,9 @@ export default function AddPublicEvent(props) {
 			  onChange={e => setOther(e.target.value)}
 			 />
 
-            <label htmlFor='description'>Description:</label>
+            
 			<input 
+			class='formInput'
 			  id='description'
 			  type='text'
 			  value={description}
@@ -211,19 +257,22 @@ export default function AddPublicEvent(props) {
 			  onChange={e => setDescription(e.target.value)}
 			 />
 
-            <label htmlFor='price'>Price:</label>
+            
 			<input 
+			class='formInput'
 			  id='price'
 			  type='number'
 			  value={price}
 			  placeholder="Price"
 			  onChange={e => setPrice(e.target.value)}
 			 />
+
+
 			 <button type='submit'>Add Event</button>
 
 		  </form>
         
-            
+		
 		</div>
 	)
 }

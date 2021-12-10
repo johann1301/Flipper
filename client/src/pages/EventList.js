@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import EventCard from '../components/EventCard'
-import AddPublicEvent from '../components/AddPublicEvent'
+import AddPublicEvent from '../components/CreatePublicEvent'
 
 
 export default function ProjectList() {

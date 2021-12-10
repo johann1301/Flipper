@@ -87,6 +87,7 @@ export default function AddPublicEvent() {
 		  <form class='form' onSubmit={handleSubmit} enctype="multipart/form-data">
 		    <h1 class='createHeadline'>Public event</h1>
 
+			<h2 class='pictreHeadline'>Title picture:</h2>
 
 			<input
           class="formInput"
@@ -191,105 +192,126 @@ export default function AddPublicEvent() {
 
 
 
+			{category === 'music' &&
+            <div>
+			
+			    <input 
+			     class='formInput'
+			     id='musicGenre'
+			     type='text'
+			     value={musicGenre}
+			     placeholder="musicGenre"
+			     onChange={e => setMusicGenre(e.target.value)}
+			    />
 
             
-			<input 
-			class='formInput'
-			  id='musicGenre'
-			  type='text'
-			  value={musicGenre}
-			  placeholder="musicGenre"
-			  onChange={e => setMusicGenre(e.target.value)}
-			 />
+			    <input 
+			     class='formInput'
+			     id='musicType'
+			     type='text'
+			     value={musicType}
+			     placeholder="musicType"
+			     onChange={e => setMusicType(e.target.value)}
+			    />
+
+            </div>
+            }
+
+			{category === 'culture' &&
+                <div>
+			       <input 
+			         class='formInput'
+			         id='cultureGenre'
+			         type='text'
+			         value={cultureGenre}
+			         placeholder="cultureGenre"
+			         onChange={e => setCultureGenre(e.target.value)}
+			       />
 
             
-			<input 
-			class='formInput'
-			  id='musicType'
-			  type='text'
-			  value={musicType}
-			  placeholder="musicType"
-			  onChange={e => setMusicType(e.target.value)}
-			 />
-            
-			<input 
-			class='formInput'
-			  id='cultureGenre'
-			  type='text'
-			  value={cultureGenre}
-			  placeholder="cultureGenre"
-			  onChange={e => setCultureGenre(e.target.value)}
-			 />
+			       <input 
+			         class='formInput'
+			         id='cultureType'
+			         type='text'
+			         value={cultureType}
+			         placeholder="cultureType"
+			         onChange={e => setCultureType(e.target.value)}
+			       />
+			   </div>
+            }
+
+            {category === 'sport' &&
+                <div>
+			        <input 
+			         class='formInput'
+			         id='sportGenre'
+			         type='text'
+			         value={sportGenre}
+			         placeholder="sportGenre"
+			         onChange={e => setSportGenre(e.target.value)}
+			        />
 
             
-			<input 
-			class='formInput'
-			  id='cultureType'
-			  type='text'
-			  value={cultureType}
-			  placeholder="cultureType"
-			  onChange={e => setCultureType(e.target.value)}
-			 />
+			        <input 
+			         class='formInput'
+			         id='sportType'
+			         type='text'
+			         value={sportType}
+			         placeholder="sportType"
+			         onChange={e => setSportType(e.target.value)}
+			        />
+			    </div>
+            }
+
+            {category === 'education' &&
+                <div>
+			        <input 
+			         class='formInput'
+			         id='educationGenre'
+			         type='text'
+			         value={educationGenre}
+			         placeholder="educationGenre"
+			         onChange={e => setEducationGenre(e.target.value)}
+			        />
 
             
-			<input 
-			class='formInput'
-			  id='sportGenre'
-			  type='text'
-			  value={sportGenre}
-			  placeholder="sportGenre"
-			  onChange={e => setSportGenre(e.target.value)}
-			 />
+			        <input 
+			         class='formInput'
+			         id='educationType'
+			         type='text'
+			         value={educationType}
+			         placeholder="educationType"
+			         onChange={e => setEducationType(e.target.value)}
+			        />
+			  </div>
+            }
 
-            
-			<input 
-			class='formInput'
-			  id='sportType'
-			  type='text'
-			  value={sportType}
-			  placeholder="sportType"
-			  onChange={e => setSportType(e.target.value)}
-			 />
+            {category === 'education' &&
+                <div>
+			        <input 
+			         class='formInput'
+			         id='other'
+			         type='text'
+			         value={other}
+			         placeholder="Other"
+			         onChange={e => setOther(e.target.value)}
+			        />
+			    </div>
+            }
 
-            
-			<input 
-			class='formInput'
-			  id='educationGenre'
-			  type='text'
-			  value={educationGenre}
-			  placeholder="educationGenre"
-			  onChange={e => setEducationGenre(e.target.value)}
-			 />
+			<h2 class='categoryHeadline'>What is your event about?</h2>
 
-            
-			<input 
-			class='formInput'
-			  id='educationType'
-			  type='text'
-			  value={educationType}
-			  placeholder="educationType"
-			  onChange={e => setEducationType(e.target.value)}
-			 />
-
-            
-			<input 
-			class='formInput'
-			  id='other'
-			  type='text'
-			  value={other}
-			  placeholder="Other"
-			  onChange={e => setOther(e.target.value)}
-			 />
-
-            
-			<input 
-			class='formInput'
-			  id='description'
-			  type='text'
-			  value={description}
-			  placeholder="Description"
-			  onChange={e => setDescription(e.target.value)}
-			 />
+            <textarea 
+			 class='formInput' 
+			 type="text" 
+			 name="description" 
+			 id="description" 
+			 placeholder="Description" 
+			 onChange={e => setDescription(e.target.value)}
+			 rows="10" 
+			 cols="50">
+			 </textarea>
+			
 
             
 			<input 

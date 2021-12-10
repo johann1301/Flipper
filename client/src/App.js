@@ -5,7 +5,7 @@ import EventList from './pages/EventList';
 import EventDetails from './pages/EventDetails';
 import CreateEvent from './pages/CreateEvent';
 import Navbar from './components/Navbar'
-import AddPublicEvent from './components/AddPublicEvent';
+import AddPublicEvent from './components/CreatePublicEvent';
 
 
 function App() {

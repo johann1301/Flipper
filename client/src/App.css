@@ -127,6 +127,11 @@ margin-top: 20px;
   text-decoration: underline white;
 }
 
+.pictreHeadline{
+  color: white;
+  font-weight: bold;
+}
+
 
 
 ::placeholder{

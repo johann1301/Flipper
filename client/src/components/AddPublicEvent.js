@@ -28,7 +28,31 @@ export default function AddPublicEvent() {
 	
 	
 	
+	const handleUpload = (file) => {
+		return axios
+		  .post('/api/upload', file)
+		  .then((res) => res.data)
 	
+		  .catch((err) => console.log(err));
+	  };
+	
+	  const handleFileUpload = (e) => {
+		// const uploadData = new FormData()
+		console.log('The file to be uploaded is: ', e.target.files[0]);
+	
+		const uploadData = new FormData();
+	
+		uploadData.append('imageURL', e.target.files[0]);
+	
+		console.log('the data', uploadData);
+	
+		handleUpload(uploadData)
+		  .then((response) => {
+			// console.log(response);
+			setImageUrl(response.secure_url);
+		  })
+		  .catch((err) => console.log('Error when uploading the file: ', err));
+	  };
 
 	
 
@@ -64,15 +88,14 @@ export default function AddPublicEvent() {
 		    <h1 class='createHeadline'>Public event</h1>
 
 
-			<input 
-			class='formInput'
-			  name='imageUrl'
-			  
-			  type='file'
-			  value={imageUrl}
+			<input
+          class="formInput"
+          name="imageUrl"
+          type="file"
+          //   value={imageUrl}
 
-			  onChange={e => setImageUrl(e.target.value)}
-			 />
+          onChange={handleFileUpload}
+        />
             
 			<input 
 			class='formInput'

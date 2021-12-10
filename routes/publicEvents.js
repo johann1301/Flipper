@@ -13,6 +13,22 @@ router.get('/events', (req, res, next) => {
 
 // get all tasks for a specific public Event 
 
+
+// upload an image
+
+router.post('/upload', fileUploader.single('imageURL'), (req, res, next) => {
+	if (!req.file) {
+	  next(new Error('No file uploaded!'));
+	  return;
+	}
+
+	// get the URL of the uploaded file and send it as a response.
+	// 'secure_url' can be any name, just make sure you remember to use the same when accessing it on the frontend
+  
+	res.json({ secure_url: req.file.path });
+  });
+  
+
 // create a public Event
 router.post('/create/public', fileUploader.single("imageUrl"), (req, res, next) => {
 
@@ -24,52 +40,52 @@ router.post('/create/public', fileUploader.single("imageUrl"), (req, res, next) 
 		city }, category, options: { music: { musicGenre, musicType }, culture:{ cultureGenre, cultureType }, 
 		sport: { sportGenre, sportType }, education: { educationGenre, educationType }, other: { other } },
 		description, price } = req.body
-    console.log(req.file)
-// 	PublicEvent.create({
-// 		imageUrl: imageUrl, 
-// 		title: title,
-// 		date: date,
-// 		time: time, 
+    
+	PublicEvent.create({
+		imageUrl: imageUrl, 
+		title: title,
+		date: date,
+		time: time, 
 
-// 		address: {
-// 		  street: street,
-//           number: number,
-//           zipcode: zipcode,
-//           city: city,
-// 		}, 
+		address: {
+		  street: street,
+          number: number,
+          zipcode: zipcode,
+          city: city,
+		}, 
 
-// 		category: category,
+		category: category,
 
-// 		options: {
+		options: {
 
-// 		  music: {
-// 			  musicGenre: musicGenre, 
-// 			  musicType: musicType},
+		  music: {
+			  musicGenre: musicGenre, 
+			  musicType: musicType},
 
-// 		  culture: {
-// 			  cultureGenre: cultureGenre, 
-// 			  cultureType: cultureType},
+		  culture: {
+			  cultureGenre: cultureGenre, 
+			  cultureType: cultureType},
 
-// 		  sport: {
-// 			  sportGenre: sportGenre, 
-// 			  sportType: sportType},
+		  sport: {
+			  sportGenre: sportGenre, 
+			  sportType: sportType},
 
-// 		  education:{
-// 			  educationGenre: educationGenre,
-// 			  educationType: educationType},
+		  education:{
+			  educationGenre: educationGenre,
+			  educationType: educationType},
 
-// 		  other: {other: other}
+		  other: {other: other}
 
-// 		}, 
+		}, 
 
-// 		description: description, 
-// 		price: price,
+		description: description, 
+		price: price,
 		
-// 	})
-// 		.then(publicEvent => {
-// 			res.status(201).json(publicEvent)
-// 		})
-// 		.catch(err => next(err))
+	})
+		.then(publicEvent => {
+			res.status(201).json(publicEvent)
+		})
+		.catch(err => next(err))
 });
 
 // get a specific public Event

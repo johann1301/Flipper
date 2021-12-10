@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const publicEventSchema = new Schema({
+	imageUrl: String,
 	title: String,
 	date: String,
 	time: Number,
@@ -20,12 +21,7 @@ const publicEventSchema = new Schema({
 	},
 	description: String,
 	price: Number,
-	owner: {
-		type: Schema.Types.ObjectId,
-		ref: 'User'
-	},
-	imgPath: String,
-    imgName: String,
+    
 }, {
 	timestamps: true,
 });

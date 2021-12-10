@@ -24,6 +24,7 @@ export default function AddPublicEvent() {
 	const [other, setOther] = useState('')
 	const [description, setDescription] = useState('')
 	const [price, setPrice] = useState('')
+	const [imageUrl, setImageUrl] = useState('')
 	
 	
 	
@@ -37,7 +38,7 @@ export default function AddPublicEvent() {
 
 	  e.preventDefault()
 
-      const requestBody = { title, date, time, address:{ street, number, zipcode, 
+      const requestBody = { imageUrl, title, date, time, address:{ street, number, zipcode, 
 		city }, category, options: { music: { musicGenre, musicType }, culture:{ cultureGenre, cultureType }, 
 		sport: { sportGenre, sportType }, education: { educationGenre, educationType }, other: { other } },
 		description, price }
@@ -59,9 +60,19 @@ export default function AddPublicEvent() {
 
           
 
-		  <form class='form' onSubmit={handleSubmit}>
+		  <form class='form' onSubmit={handleSubmit} enctype="multipart/form-data">
 		    <h1 class='createHeadline'>Public event</h1>
 
+
+			<input 
+			class='formInput'
+			  name='imageUrl'
+			  
+			  type='file'
+			  value={imageUrl}
+
+			  onChange={e => setImageUrl(e.target.value)}
+			 />
             
 			<input 
 			class='formInput'

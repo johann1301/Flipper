@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const PublicEvent = require('../models/PublicEvent')
+const fileUploader = require("../config/cloudinary.config");
 
 // get all public Events
 router.get('/events', (req, res, next) => {
@@ -13,57 +14,62 @@ router.get('/events', (req, res, next) => {
 // get all tasks for a specific public Event 
 
 // create a public Event
-router.post('/create/public', (req, res, next) => {
+router.post('/create/public', fileUploader.single("imageUrl"), (req, res, next) => {
 
-	const { title, date, time, address:{ street, number, zipcode, 
+
+	
+
+
+	const { imageUrl, title, date, time, address:{ street, number, zipcode, 
 		city }, category, options: { music: { musicGenre, musicType }, culture:{ cultureGenre, cultureType }, 
 		sport: { sportGenre, sportType }, education: { educationGenre, educationType }, other: { other } },
 		description, price } = req.body
+    console.log(req.file)
+// 	PublicEvent.create({
+// 		imageUrl: imageUrl, 
+// 		title: title,
+// 		date: date,
+// 		time: time, 
 
-	PublicEvent.create({ 
-		title: title,
-		date: date,
-		time: time, 
+// 		address: {
+// 		  street: street,
+//           number: number,
+//           zipcode: zipcode,
+//           city: city,
+// 		}, 
 
-		address: {
-		  street: street,
-          number: number,
-          zipcode: zipcode,
-          city: city,
-		}, 
+// 		category: category,
 
-		category: category,
+// 		options: {
 
-		options: {
+// 		  music: {
+// 			  musicGenre: musicGenre, 
+// 			  musicType: musicType},
 
-		  music: {
-			  musicGenre: musicGenre, 
-			  musicType: musicType},
+// 		  culture: {
+// 			  cultureGenre: cultureGenre, 
+// 			  cultureType: cultureType},
 
-		  culture: {
-			  cultureGenre: cultureGenre, 
-			  cultureType: cultureType},
+// 		  sport: {
+// 			  sportGenre: sportGenre, 
+// 			  sportType: sportType},
 
-		  sport: {
-			  sportGenre: sportGenre, 
-			  sportType: sportType},
+// 		  education:{
+// 			  educationGenre: educationGenre,
+// 			  educationType: educationType},
 
-		  education:{
-			  educationGenre: educationGenre,
-			  educationType: educationType},
+// 		  other: {other: other}
 
-		  other: {other: other}
+// 		}, 
 
-		}, 
-
-		description: description, 
-		price: price, 
+// 		description: description, 
+// 		price: price,
 		
-	})
-		.then(publicEvent => {
-			res.status(201).json(publicEvent)
-		})
-		.catch(err => next(err))
+// 	})
+// 		.then(publicEvent => {
+// 			res.status(201).json(publicEvent)
+// 		})
+// 		.catch(err => next(err))
 });
 
 // get a specific public Event

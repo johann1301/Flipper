@@ -4,7 +4,7 @@ const publicEventSchema = new Schema({
 	imageUrl: String,
 	title: String,
 	date: String,
-	time: Number,
+	time: String,
 	address: {
 		street: String,
 		number: Number,

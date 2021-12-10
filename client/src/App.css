@@ -1,5 +1,5 @@
 /* *{
-  border: 3px solid red
+  border: 3px solid black
 } */
 
 .App {
@@ -183,3 +183,42 @@ margin-top: 20px;
 .selector{
   background-color: #363636;
 }
+
+/* Event Card */
+
+.eventCard{
+  width: 300px;
+  box-shadow: 0px 3px 10px 3px rgba(0,0,0,0.63);
+  border-radius: 20px;
+}
+
+.userName{
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  
+}
+
+.inCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardInfoBox{
+width:300px;
+}
+
+.directInfo{
+  display: flex;
+  flex-direction: row;
+  
+}
+
+
+.cardInfo{
+  width: 135px;
+}
+

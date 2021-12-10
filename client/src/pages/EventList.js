@@ -29,7 +29,11 @@ export default function ProjectList() {
 	return (
 		<>
 			<h1>All the Events</h1>
-            {events.map(event => <EventCard key={event._id} {...event} /> )}
+            {events.map(event => 
+			<div class='alignEvents'>
+			<EventCard key={event._id} {...event} />
+			</div>
+			 )}
 
 		</>
 	)

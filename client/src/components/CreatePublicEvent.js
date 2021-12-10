@@ -62,6 +62,69 @@ export default function AddPublicEvent() {
 
 	  e.preventDefault()
 
+	//   if (category === 'music'){
+	// 	setCultureGenre('')
+	// 	setCultureType('') 
+	// 	setSportGenre('')
+	// 	setSportType('')
+	// 	setEducationGenre('')
+	// 	setEducationType('')
+	// 	setOther('')
+	//   }
+
+	//   if (category === 'culture'){
+	// 	setMusicGenre('')
+	// 	setMusicType('') 
+	// 	setSportGenre('')
+	// 	setSportType('')
+	// 	setEducationGenre('')
+	// 	setEducationType('')
+	// 	setOther('')
+	//   }
+
+	//   if (category === 'sport'){
+	// 	setMusicGenre('')
+	// 	setMusicType('') 
+	// 	setCultureGenre('')
+	// 	setCultureType('')
+	// 	setEducationGenre('')
+	// 	setEducationType('')
+	// 	setOther('')
+	//   }
+
+	//   if (category === 'education'){
+	// 	setMusicGenre('')
+	// 	setMusicType('') 
+	// 	setCultureGenre('')
+	// 	setCultureType('')
+	// 	setSportGenre('')
+	// 	setSportType('')
+	// 	setOther('')
+	//   }
+
+	//   if (category === 'other'){
+	// 	setMusicGenre('')
+	// 	setMusicType('') 
+	// 	setCultureGenre('')
+	// 	setCultureType('')
+	// 	setSportGenre('')
+	// 	setSportType('')
+	// 	setEducationGenre('')
+	// 	setEducationType('')
+	//   }
+
+	//   if (category === 'other'){
+	// 	setMusicGenre('')
+	// 	setMusicType('') 
+	// 	setCultureGenre('')
+	// 	setCultureType('')
+	// 	setSportGenre('')
+	// 	setSportType('')
+	// 	setEducationGenre('')
+	// 	setEducationType('')
+	// 	setOther('')
+	//   }
+
       const requestBody = { imageUrl, title, date, time, address:{ street, number, zipcode, 
 		city }, category, options: { music: { musicGenre, musicType }, culture:{ cultureGenre, cultureType }, 
 		sport: { sportGenre, sportType }, education: { educationGenre, educationType }, other: { other } },
@@ -111,7 +174,7 @@ export default function AddPublicEvent() {
 			<input 
 			class='formInput'
 			  id='date'
-			  type='text'
+			  type='date'
 			  value={date}
 			  placeholder="Date"
 			  onChange={e => setDate(e.target.value)}
@@ -121,7 +184,7 @@ export default function AddPublicEvent() {
 			<input 
 			class='formInput'
 			  id='time'
-			  type='number'
+			  type='time'
 			  value={time}
 			  placeholder="Time"
 			  onChange={e => setTime(e.target.value)}
@@ -193,100 +256,131 @@ export default function AddPublicEvent() {
 
 
 			{category === 'music' &&
-            <div>
-			
-			    <input 
-			     class='formInput'
-			     id='musicGenre'
-			     type='text'
-			     value={musicGenre}
-			     placeholder="musicGenre"
-			     onChange={e => setMusicGenre(e.target.value)}
-			    />
 
-            
-			    <input 
-			     class='formInput'
-			     id='musicType'
-			     type='text'
-			     value={musicType}
-			     placeholder="musicType"
-			     onChange={e => setMusicType(e.target.value)}
-			    />
+			
+            <div >
+
+			<select class='formInput' onChange={e => setMusicGenre(e.target.value)} name="musicGenre">
+		
+		       <option class='selector' value="">-Genre-</option>
+		       <option class='selector' value="techno">Techno</option>
+		       <option class='selector' value="house">House</option>
+		       <option class='selector' value="hip hop">Hip Hop</option>
+		       <option class='selector' value="rock">Rock</option>
+		       <option class='selector' value="r&b">R&B</option>
+			   <option class='selector' value="pop">Pop</option>
+		       <option class='selector' value="old school">Old School</option>
+		       <option class='selector' value="classic">Classic</option>
+		       <option class='selector' value="schlager">Schlager</option>
+		       <option class='selector' value="other">Other</option>
+		       
+		       
+	
+            </select>
+
+			<select class='formInput' onChange={e => setMusicType(e.target.value)} name="musicGenre">
+		
+		        <option class='selector' value="">-Type-</option>
+		        <option class='selector' value="club">Club</option>
+		        <option class='selector' value="bar">Bar</option>
+		        <option class='selector' value="open air">Open Air</option>
+		        <option class='selector' value="festival">Festival</option>
+		        <option class='selector' value="concert">Concert</option>
+		        <option class='selector' value="other">Other</option>
+		
+	        </select>
 
             </div>
             }
 
 			{category === 'culture' &&
                 <div>
-			       <input 
-			         class='formInput'
-			         id='cultureGenre'
-			         type='text'
-			         value={cultureGenre}
-			         placeholder="cultureGenre"
-			         onChange={e => setCultureGenre(e.target.value)}
-			       />
 
-            
-			       <input 
-			         class='formInput'
-			         id='cultureType'
-			         type='text'
-			         value={cultureType}
-			         placeholder="cultureType"
-			         onChange={e => setCultureType(e.target.value)}
-			       />
+				<select class='formInput' onChange={e => setCultureType(e.target.value)} name="musicGenre">
+		
+		            <option class='selector' value="">-Type-</option>
+		            <option class='selector' value="museum">Museum</option>
+		            <option class='selector' value="gallery">Gallery</option>
+		            <option class='selector' value="theater">Theater</option>
+		            <option class='selector' value="movies">Movies</option>
+		            <option class='selector' value="books">Books</option>
+			        <option class='selector' value="fashion">Fashion</option>
+		            <option class='selector' value="exhibition">Exhibition</option>
+		            <option class='selector' value="other">Other</option>
+		        
+                </select>
+
+
+				
+				<select class='formInput' onChange={e => setCultureGenre(e.target.value)} name="musicGenre">
+
+		            <option class='selector' value="">-Genre-</option>
+		            <option class='selector' value="history">History</option>
+		            <option class='selector' value="modern">Modern</option>
+		            <option class='selector' value="pop culture">Pop Culture</option>
+		            <option class='selector' value="future">Future</option>
+		            <option class='selector' value="other">Other</option>
+			       
+				</select>
+
+				  
 			   </div>
             }
 
             {category === 'sport' &&
                 <div>
-			        <input 
-			         class='formInput'
-			         id='sportGenre'
-			         type='text'
-			         value={sportGenre}
-			         placeholder="sportGenre"
-			         onChange={e => setSportGenre(e.target.value)}
-			        />
 
-            
-			        <input 
-			         class='formInput'
-			         id='sportType'
-			         type='text'
-			         value={sportType}
-			         placeholder="sportType"
-			         onChange={e => setSportType(e.target.value)}
-			        />
+				<select class='formInput' onChange={e => setSportType(e.target.value)} name="musicGenre">
+		
+				<option class='selector' value="">-Type-</option>
+		            <option class='selector' value="ball sport">Ball Sport</option>
+		            <option class='selector' value="cardio">Cardio</option>
+		            <option class='selector' value="yoga">Yoga</option>
+		            <option class='selector' value="weights training">Weights Training</option>
+		            <option class='selector' value="chess">Chess</option>
+					<option class='selector' value="other">Other</option>
+			       
+				</select>
+
+			        
 			    </div>
             }
 
             {category === 'education' &&
                 <div>
-			        <input 
-			         class='formInput'
-			         id='educationGenre'
-			         type='text'
-			         value={educationGenre}
-			         placeholder="educationGenre"
-			         onChange={e => setEducationGenre(e.target.value)}
-			        />
+
+				<select class='formInput' onChange={e => setEducationGenre(e.target.value)} name="musicGenre">
+				    
+					<option class='selector' value="">-Branch-</option>
+		            <option class='selector' value="economy">Economy</option>
+		            <option class='selector' value="politics">Politics</option>
+		            <option class='selector' value="environment">Environment</option>
+		            <option class='selector' value="marketing">Marketing</option>
+		            <option class='selector' value="information technology">Information Technology</option>
+					<option class='selector' value="other">Other</option>
+		            
+				</select>
+
+
+				<select class='formInput' onChange={e => setEducationGenre(e.target.value)} name="musicGenre">
+				    
+					<option class='selector' value="">-Type-</option>
+		            <option class='selector' value="lecture">Lecture</option>
+		            <option class='selector' value="discussion">Discussion</option>
+		            <option class='selector' value="continuing education">Continuing education</option>
+		            <option class='selector' value="bootcamp">Bootcamp</option>
+		            <option class='selector' value="open house">Open House</option>
+					<option class='selector' value="other">Other</option>
+		            
+			       
+				</select>
 
             
-			        <input 
-			         class='formInput'
-			         id='educationType'
-			         type='text'
-			         value={educationType}
-			         placeholder="educationType"
-			         onChange={e => setEducationType(e.target.value)}
-			        />
+			        
 			  </div>
             }
 
-            {category === 'education' &&
+            {category === 'other' &&
                 <div>
 			        <input 
 			         class='formInput'

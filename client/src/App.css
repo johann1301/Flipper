@@ -1,5 +1,6 @@
 /* *{
-  border: 3px solid black
+  border: 3px solid black;
+  
 } */
 
 .App {
@@ -80,7 +81,7 @@ margin-top: 20px;
 }
 
 .buttonDirection{
-  height:100vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -186,10 +187,19 @@ margin-top: 20px;
 
 /* Event Card */
 
+.flex{
+  display: flex;
+  flex-wrap: nowrap | wrap | wrap-reverse;
+  width: 90vw;
+  
+}
+
 .eventCard{
   width: 300px;
   box-shadow: 0px 3px 10px 3px rgba(0,0,0,0.63);
   border-radius: 20px;
+  margin: 20px;
+
 }
 
 .userName{
@@ -220,5 +230,51 @@ width:300px;
 
 .cardInfo{
   width: 135px;
+}
+
+/* Button / Links */
+
+.details-link{
+  text-decoration: none;
+  margin-top: 8px;
+  border-radius: 15px;
+  border: 3px solid white;
+  background-color: #363636;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  margin: 5px;
+}
+
+.details-link:hover{
+  text-decoration: none;
+  margin-top: 8px;
+  border-radius: 15px;
+  border: 3px solid white;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  padding: 5px 10px;
+  margin: 5px;
+}
+
+.details-btn{
+  margin-top: 8px;
+  border-radius: 15px;
+  border: 3px solid white;
+  background-color: #363636;
+  color: white;
+  font-weight: bold;
+  font-size: larger;
+  padding: 10px;
+}
+
+.details-btn:hover{
+  margin-top: 10px;
+  border-radius: 15px;
+  border: 3px solid white;
+  background-color: white;
+  color: black;
+  padding: 10px;
 }
 

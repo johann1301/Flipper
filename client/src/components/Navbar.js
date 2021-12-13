@@ -5,31 +5,31 @@ export default function EventCard() {
 	return (
 		<div class='navbar'>
 
-        <Link class='button' to={'/home'}>
+        <Link class='details-link' to={'/home'}>
 			Home
         </Link>
 
-        <Link class='button' to={'/events'}>
+        <Link class='details-link' to={'/events'}>
 			Search
         </Link>
 
-        <Link class='button' to={'/flipper'}>
+        <Link class='details-link' to={'/flipper'}>
 			Flipper
         </Link>
 
-        <Link class='button' to={'/calendar'}>
+        <Link class='details-link' to={'/calendar'}>
 			Calendar
         </Link>
 
-        <Link class='button' to={'/favorites'}>
+        <Link class='details-link' to={'/favorites'}>
 			Favorites
         </Link>
 
-        <Link class='button' to={'/messages'}>
+        <Link class='details-link' to={'/messages'}>
 			Messages
         </Link>
 
-        <Link class='button' to={'/create'}>
+        <Link class='details-link' to={'/create'}>
 			Create an Event +
         </Link>
 

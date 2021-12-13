@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import EventCard from '../components/EventCard'
-import AddPublicEvent from '../components/CreatePublicEvent'
+
 
 
 export default function ProjectList() {
@@ -29,12 +29,9 @@ export default function ProjectList() {
 	return (
 		<>
 			<h1>All the Events</h1>
-            {events.map(event => 
-			<div class='alignEvents'>
-			<EventCard key={event._id} {...event} />
-			</div>
-			 )}
-
+			<div class='flex'>
+            {events.map(event => <EventCard key={event._id} {...event} />)}
+            </div>
 		</>
 	)
 }

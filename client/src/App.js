@@ -1,11 +1,11 @@
 import './App.css';
 import {Routes, Route} from 'react-router-dom'
-import EventSearch from './pages/EventSearch'
-import EventList from './pages/EventList';
+import Home from './pages/Home'
+import EventList from './pages/Search';
 import EventDetails from './pages/EventDetails';
 import CreateEvent from './pages/CreateEvent';
 import Navbar from './components/Navbar'
-import AddPublicEvent from './components/CreatePublicEvent';
+import CreatePublicEvent from './components/CreatePublicEvent';
 
 
 function App() {
@@ -14,11 +14,11 @@ function App() {
 
     <Navbar />
       <Routes>
-        <Route path='/' element={<EventSearch />} />
+        <Route path='/' element={<Home />} />
         <Route path='/events' element={<EventList />} />
         <Route path='/events/:id' element={<EventDetails />} />
         <Route path='/create' element={<CreateEvent />} />
-        <Route path='/create/public' element={<AddPublicEvent  />} />
+        <Route path='/create/public' element={<CreatePublicEvent  />} />
       </Routes>
 
     </div>

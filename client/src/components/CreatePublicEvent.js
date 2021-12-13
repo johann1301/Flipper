@@ -418,7 +418,7 @@ export default function AddPublicEvent() {
 			 />
 
 
-			 <button type='submit'>Add Event</button>
+			 <button class='details-btn' type='submit'>Add Event</button>
 
 		  </form>
         

@@ -26,12 +26,20 @@ export default function EventCard(props) {
 	if (events.length === 0) {
 		return <></>
 	}
+        
 
 
   let list = events
   .filter(event => event.address.city.toLowerCase().includes(props.searchCity.toLowerCase()))
   .filter(event => event.date >= props.searchDate )
-  .filter(event => (event.category === props.searchCategory ) && props.searchCategory !== '')
+  .filter(event => (event.category === props.searchCategory || !props.searchCategory ))
+  .filter(event => (event.options.music.musicGenre === props.searchMusicGenre || !props.searchMusicGenre ))
+  .filter(event => (event.options.music.musicType === props.searchMusicType || !props.searchMusicType ))
+  .filter(event => (event.options.culture.cultureGenre === props.searchCultureGenre || !props.searchCultureGenre ))
+  .filter(event => (event.options.culture.cultureType === props.searchCultureType || !props.searchCultureType ))
+  .filter(event => (event.options.sport.sportType === props.searchSportType || !props.searchSportType ))
+  .filter(event => (event.options.education.educationGenre === props.searchEducationGenre || !props.searchEducationGenre ))
+  .filter(event => (event.options.education.educationType === props.searchEducationType || !props.searchEducationType ))
   .map ( event =>{
 
 	return (
@@ -95,7 +103,11 @@ export default function EventCard(props) {
 
 	)
 })
-
+if (list.length === 0) {
+  return <>
+  <h1>No events!!</h1>
+  </>
+}
 return (
   <>
   {list}

@@ -42,6 +42,8 @@ export default function Search() {
             </div>
 
 			<SearchForm 
+			searchDate={searchDate}
+			searchCity={searchCity}
 			setSearchCity={setSearchCity} 
 			setSearchDate={setSearchDate} 
 			searchCategory={searchCategory}

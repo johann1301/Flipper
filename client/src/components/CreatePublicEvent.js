@@ -25,6 +25,20 @@ export default function AddPublicEvent() {
 	const [description, setDescription] = useState('')
 	const [price, setPrice] = useState('')
 	const [imageUrl, setImageUrl] = useState('')
+
+
+// Clear the typed fields
+	const onChangeHandeler = e => { 
+        setMusicGenre('');
+		setMusicType('') ;
+		setCultureGenre('');
+		setCultureType('');
+		setSportType('');
+		setEducationGenre('');
+		setEducationType('');
+		setOther('');
+        setCategory(e.target.value)
+    }
 	
 	
 	
@@ -62,69 +76,7 @@ export default function AddPublicEvent() {
 
 	  e.preventDefault()
 
-	//   if (category === 'music'){
-	// 	setCultureGenre('')
-	// 	setCultureType('') 
-	// 	setSportGenre('')
-	// 	setSportType('')
-	// 	setEducationGenre('')
-	// 	setEducationType('')
-	// 	setOther('')
-	//   }
-
-	//   if (category === 'culture'){
-	// 	setMusicGenre('')
-	// 	setMusicType('') 
-	// 	setSportGenre('')
-	// 	setSportType('')
-	// 	setEducationGenre('')
-	// 	setEducationType('')
-	// 	setOther('')
-	//   }
-
-	//   if (category === 'sport'){
-	// 	setMusicGenre('')
-	// 	setMusicType('') 
-	// 	setCultureGenre('')
-	// 	setCultureType('')
-	// 	setEducationGenre('')
-	// 	setEducationType('')
-	// 	setOther('')
-	//   }
-
-	//   if (category === 'education'){
-	// 	setMusicGenre('')
-	// 	setMusicType('') 
-	// 	setCultureGenre('')
-	// 	setCultureType('')
-	// 	setSportGenre('')
-	// 	setSportType('')
-	// 	setOther('')
-	//   }
-
-	//   if (category === 'other'){
-	// 	setMusicGenre('')
-	// 	setMusicType('') 
-	// 	setCultureGenre('')
-	// 	setCultureType('')
-	// 	setSportGenre('')
-	// 	setSportType('')
-	// 	setEducationGenre('')
-	// 	setEducationType('')
-	//   }
-
-	//   if (category === 'other'){
-	// 	setMusicGenre('')
-	// 	setMusicType('') 
-	// 	setCultureGenre('')
-	// 	setCultureType('')
-	// 	setSportGenre('')
-	// 	setSportType('')
-	// 	setEducationGenre('')
-	// 	setEducationType('')
-	// 	setOther('')
-	//   }
-
+	
       const requestBody = { imageUrl, title, date, time, address:{ street, number, zipcode, 
 		city }, category, options: { music: { musicGenre, musicType }, culture:{ cultureGenre, cultureType }, 
 		sport: { sportGenre, sportType }, education: { educationGenre, educationType }, other: { other } },
@@ -241,7 +193,7 @@ export default function AddPublicEvent() {
 
 		  <h2 class='categoryHeadline'>What kind of event are you hosting?</h2>
            
-		    <select class='formInput' onChange={e => setCategory(e.target.value)} name="category">
+		    <select class='formInput' onChange={onChangeHandeler} name="category">
 		
 		       <option class='selector' value="">-Category-</option>
 		       <option class='selector' value="music">Music</option>
@@ -362,7 +314,7 @@ export default function AddPublicEvent() {
 				</select>
 
 
-				<select class='formInput' onChange={e => setEducationGenre(e.target.value)} name="musicGenre">
+				<select class='formInput' onChange={e => setEducationType(e.target.value)} name="musicGenre">
 				    
 					<option class='selector' value="">-Type-</option>
 		            <option class='selector' value="lecture">Lecture</option>

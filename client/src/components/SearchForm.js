@@ -4,14 +4,33 @@ import React from 'react'
 
 
 export default function SearchForm(props) {
+     
+    const refresh = event => {
+        props.setSearchCategory('')
+        props.setSearchCity('')
+        props.setSearchDate('')
 
-	
+    }
+	const onChangeHandeler = e => { 
+        props.setSearchMusicGenre('');
+		props.setSearchMusicType('') ;
+		props.setSearchCultureGenre('');
+		props.setSearchCultureType('');
+		props.setSearchSportType('');
+		props.setSearchEducationGenre('');
+		props.setSearchEducationType('');
+        props.setSearchCategory(e.target.value)
+    }
+    
+
+
+
 	return (
 		<div >
 
           
 
-		  <div class='form'  >
+		  <form  class='form' onSubmit={refresh} >
 		    <h1>Search for Event</h1>
          
 			<input 
@@ -31,7 +50,7 @@ export default function SearchForm(props) {
 
 <h2 class='categoryHeadline'>What kind of event are you looking for?</h2>
            
-           <select class='formInput' onChange={e => props.setSearchCategory(e.target.value)} name="category">
+           <select class='formInput' onChange={onChangeHandeler } name="category">
        
               <option class='selector' value="">-Category-</option>
               <option class='selector' value="music">Music</option>
@@ -152,7 +171,7 @@ export default function SearchForm(props) {
                </select>
 
 
-               <select class='formInput' onChange={e => props.setSearchEducationGenre(e.target.value)} name="musicGenre">
+               <select class='formInput' onChange={e => props.setSearchEducationType(e.target.value)} name="musicGenre">
                    
                    <option class='selector' value="">-Type-</option>
                    <option class='selector' value="lecture">Lecture</option>
@@ -165,13 +184,13 @@ export default function SearchForm(props) {
                   
                </select>
 
-           
+               
                    
              </div>
            }
+           <button class='details-btn' type='submit' >Reresh</button>
 
-
-		  </div>
+		  </form>
         
 		
 		</div>

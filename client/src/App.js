@@ -6,7 +6,8 @@ import EventDetails from './pages/EventDetails';
 import CreateEvent from './pages/CreateEvent';
 import Navbar from './components/Navbar'
 import CreatePublicEvent from './components/CreatePublicEvent';
-
+import Signup from './components/Signup'
+import Login from './components/Login'
 
 function App() {
   return (
@@ -19,7 +20,10 @@ function App() {
         <Route path='/events/:id' element={<EventDetails />} />
         <Route path='/create' element={<CreateEvent />} />
         <Route path='/create/public' element={<CreatePublicEvent  />} />
+        <Route path='/signup' element={<Signup  />} />
+        <Route path='/login' element={<Login  />} />
       </Routes>
+
 
     </div>
   );

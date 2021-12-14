@@ -5,13 +5,13 @@ import axios from 'axios'
 
 export default function EventCard(props) {
 
-
+  const storedToken = localStorage.getItem('authToken')
 
   const [events, setEvents] = useState([])
 
 	const getAllEvents = () => {
 		// request all the events from the server
-		axios.get('/api/events')
+		axios.get('/api/events', { headers: { Authorization: `Bearer ${storedToken}` } })
 			.then(response => {
 				
 				setEvents(response.data)

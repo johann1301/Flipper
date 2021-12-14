@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 const User = require('../models/User.model')
 const jwt = require('jsonwebtoken')
 const { isAuthenticated } = require('./../middleware/jwt.js')
-
+ 
 const saltRounds = 10
 
 router.post('/signup', (req, res, next) => {

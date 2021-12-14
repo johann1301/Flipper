@@ -8,6 +8,7 @@ import Navbar from './components/Navbar'
 import CreatePublicEvent from './components/CreatePublicEvent';
 import Signup from './components/Signup'
 import Login from './components/Login'
+import EditEvent from './components/EditEvent'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/events' element={<EventList />} />
         <Route path='/events/:id' element={<EventDetails />} />
+        <Route path='/events/edit/:id' element={<EditEvent />} />
         <Route path='/create' element={<CreateEvent />} />
         <Route path='/create/public' element={<CreatePublicEvent  />} />
         <Route path='/signup' element={<Signup  />} />

@@ -5,7 +5,7 @@ import { AuthContext } from '../context/auth'
 
 export default function EventCard() {
 
-    const {isLoggedIn, user} = useContext(AuthContext)
+    const {isLoggedIn, user, logoutUser} = useContext(AuthContext)
 
 
 // console.log('user', user)
@@ -48,7 +48,7 @@ export default function EventCard() {
 			Create an Event +
         </Link>
 
-        <button>Logout</button>   
+        <button class='details-link' onClick={logoutUser}>Logout</button>   
 	</>
 ):(
     <>

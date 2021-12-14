@@ -102,11 +102,56 @@ router.get('/events/:id', (req, res, next) => {
 		.catch(err => next(err))
 });
 
-router.put('/:id', (req, res, next) => {
-	const { title, description } = req.body
+router.put('/events/edit/:id', fileUploader.single("imageUrl"), (req, res, next) => {
+
+	const { imageUrl, title, date, time, address:{ street, number, zipcode, 
+		city }, category, options: { music: { musicGenre, musicType }, culture:{ cultureGenre, cultureType }, 
+		sport: { sportGenre, sportType }, education: { educationGenre, educationType }, other: { other } },
+		description, price } = req.body
+		
 	PublicEvent.findByIdAndUpdate(req.params.id, {
+		imageUrl, 
 		title,
-		description
+		date,
+		time,
+
+		address: {
+		  street,
+          number,
+          zipcode,
+          city,
+		}, 
+
+		category,
+
+		options: {
+
+		  music: {
+			  musicGenre,
+			  musicType,
+		  },
+
+		  culture: {
+			  cultureGenre, 
+			  cultureType,
+			},
+
+		  sport: {
+			  sportGenre, 
+			  sportType,
+			},
+
+		  education:{
+			  educationGenre,
+			  educationType,
+			},
+
+		  other: {other}
+
+		}, 
+
+		description, 
+		price,
 	}, { new: true })
 		.then(updatedPublicEvent => {
 			res.status(200).json(updatedPublicEvent)

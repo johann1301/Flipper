@@ -1,9 +1,9 @@
 import React from 'react'
-import { useState } from 'react'
 import axios from 'axios'
+import { useState, useEffect } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 
-
-export default function AddPublicEvent() {
+export default function EditProject() {
 
 	const [title, setTitle] = useState('')
 	const [date, setDate] = useState('')
@@ -26,8 +26,43 @@ export default function AddPublicEvent() {
 	const [price, setPrice] = useState('')
 	const [imageUrl, setImageUrl] = useState('')
 
+	const { id } = useParams()
 
-// Clear the typed fields
+    const storedToken = localStorage.getItem('authToken')
+
+	let navigate = useNavigate();
+
+	useEffect(() => {
+		axios.get(`/api/events/${id}`, { headers: { Authorization: `Bearer ${storedToken}` } })
+			.then(response => {
+				const { imageUrl, title, date, time, address:{ street, number, zipcode, 
+                    city }, category, options: { music: { musicGenre, musicType }, culture:{ cultureGenre, cultureType }, 
+                    sport: { sportGenre, sportType }, education: { educationGenre, educationType }, other: { other } },
+                    description, price } = response.data
+				setImageUrl(imageUrl)
+                setTitle(title)
+                setDate(date)
+                setTime(time)
+                setStreet(street)
+                setNumber(number)
+                setZipcode(zipcode)
+                setCity(city)
+                setCategory(category)
+                setMusicGenre(musicGenre)
+                setMusicType(musicType)
+                setCultureGenre(cultureGenre)
+                setCultureType(cultureType)
+                setSportType(sportType)
+                setEducationGenre(educationGenre)
+                setEducationType(educationType)
+                setOther(other)
+				setDescription(description)
+                setPrice(price)
+			})
+			.catch(err => console.log(err))
+	}, [])
+
+    // Clear the typed fields
 	const onChangeHandeler = e => { 
         setMusicGenre('');
 		setMusicType('') ;
@@ -39,10 +74,8 @@ export default function AddPublicEvent() {
 		setOther('');
         setCategory(e.target.value)
     }
-	
-	
-	
-	const handleUpload = (file) => {
+
+    const handleUpload = (file) => {
 		return axios
 		  .post('/api/upload', file, { headers: { Authorization: `Bearer ${storedToken}` } })
 		  .then((res) => res.data)
@@ -68,31 +101,31 @@ export default function AddPublicEvent() {
 		  .catch((err) => console.log('Error when uploading the file: ', err));
 	  };
 
-	  const storedToken = localStorage.getItem('authToken')
-
-	
-
-    const handleSubmit = e => {
-
-	  e.preventDefault()
-
-	
-      const requestBody = { imageUrl, title, date, time, address:{ street, number, zipcode, 
-		city }, category, options: { music: { musicGenre, musicType }, culture:{ cultureGenre, cultureType }, 
-		sport: { sportGenre, sportType }, education: { educationGenre, educationType }, other: { other } },
-		description, price }
+     
 
 
-        axios.post('/api/create/public', requestBody, { headers: { Authorization: `Bearer ${storedToken}` } } )
-		
-	      .then(response => {
+	const handleSubmit = e => {
+		e.preventDefault()
+		const requestBody = { imageUrl, title, date, time, address:{ street, number, zipcode, 
+            city }, category, options: { music: { musicGenre, musicType }, culture:{ cultureGenre, cultureType }, 
+            sport: { sportGenre, sportType }, education: { educationGenre, educationType }, other: { other } },
+            description, price }
 
-	      })
+		axios.put(`/api/events/${id}`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` } })
+			.then(response => {
+				// this is a redirect using react router
+				navigate(`/events/${id}`)
+			})
+	}
 
-	      .catch(err => console.log(err))
- 
-    
-}
+	const deleteProject = () => {
+		axios.delete(`/api/projects/${id}`)
+			.then(() => {
+				// redirect to the projects list 
+				navigate('/projects')
+			})
+			.catch(err => console.log(err))
+	}
 
 	return (
 		<div >
@@ -100,7 +133,7 @@ export default function AddPublicEvent() {
           
 
 		  <form class='form' onSubmit={handleSubmit} enctype="multipart/form-data">
-		    <h1 class='createHeadline'>Public event</h1>
+		    <h1 class='createHeadline'>Edit public event</h1>
 
 			<h2 class='pictreHeadline'>Title picture:</h2>
 
@@ -193,7 +226,7 @@ export default function AddPublicEvent() {
 
 		  <h2 class='categoryHeadline'>What kind of event are you hosting?</h2>
            
-		    <select class='formInput' onChange={onChangeHandeler} name="category">
+		    <select class='formInput' onChange={onChangeHandeler} name="category" value={category}>
 		
 		       <option class='selector' value="">-Category-</option>
 		       <option class='selector' value="music">Music</option>
@@ -212,7 +245,7 @@ export default function AddPublicEvent() {
 			
             <div >
 
-			<select class='formInput' onChange={e => setMusicGenre(e.target.value)} name="musicGenre">
+			<select class='formInput' onChange={e => setMusicGenre(e.target.value)} name="musicGenre" value={musicGenre}>
 		
 		       <option class='selector' value="">-Genre-</option>
 		       <option class='selector' value="techno">Techno</option>
@@ -230,7 +263,7 @@ export default function AddPublicEvent() {
 	
             </select>
 
-			<select class='formInput' onChange={e => setMusicType(e.target.value)} name="musicGenre">
+			<select class='formInput' onChange={e => setMusicType(e.target.value)} name="musicType" value={musicType}>
 		
 		        <option class='selector' value="">-Type-</option>
 		        <option class='selector' value="club">Club</option>
@@ -248,7 +281,7 @@ export default function AddPublicEvent() {
 			{category === 'culture' &&
                 <div>
 
-				<select class='formInput' onChange={e => setCultureType(e.target.value)} name="musicGenre">
+				<select class='formInput' onChange={e => setCultureType(e.target.value)} name="cultureGenre" value={cultureType}>
 		
 		            <option class='selector' value="">-Type-</option>
 		            <option class='selector' value="museum">Museum</option>
@@ -264,7 +297,7 @@ export default function AddPublicEvent() {
 
 
 				
-				<select class='formInput' onChange={e => setCultureGenre(e.target.value)} name="musicGenre">
+				<select class='formInput' onChange={e => setCultureGenre(e.target.value)} name="cultureType" value={cultureGenre}>
 
 		            <option class='selector' value="">-Genre-</option>
 		            <option class='selector' value="history">History</option>
@@ -282,7 +315,7 @@ export default function AddPublicEvent() {
             {category === 'sport' &&
                 <div>
 
-				<select class='formInput' onChange={e => setSportType(e.target.value)} name="musicGenre">
+				<select class='formInput' onChange={e => setSportType(e.target.value)} name="sportType" value={sportType}>
 		
 				<option class='selector' value="">-Type-</option>
 		            <option class='selector' value="ball sport">Ball Sport</option>
@@ -301,7 +334,7 @@ export default function AddPublicEvent() {
             {category === 'education' &&
                 <div>
 
-				<select class='formInput' onChange={e => setEducationGenre(e.target.value)} name="musicGenre">
+				<select class='formInput' onChange={e => setEducationGenre(e.target.value)} name="educationGenre" value={educationGenre}>
 				    
 					<option class='selector' value="">-Branch-</option>
 		            <option class='selector' value="economy">Economy</option>
@@ -314,7 +347,7 @@ export default function AddPublicEvent() {
 				</select>
 
 
-				<select class='formInput' onChange={e => setEducationType(e.target.value)} name="musicGenre">
+				<select class='formInput' onChange={e => setEducationType(e.target.value)} name="educationType" value={educationType}>
 				    
 					<option class='selector' value="">-Type-</option>
 		            <option class='selector' value="lecture">Lecture</option>
@@ -352,6 +385,7 @@ export default function AddPublicEvent() {
 			 type="text" 
 			 name="description" 
 			 id="description" 
+             value={description}
 			 placeholder="Description" 
 			 onChange={e => setDescription(e.target.value)}
 			 rows="10" 

@@ -21,6 +21,7 @@ const publicEventSchema = new Schema({
 	},
 	description: String,
 	price: Number,
+	owner:String,
     
 }, {
 	timestamps: true,

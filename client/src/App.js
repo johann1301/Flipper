@@ -9,6 +9,9 @@ import CreatePublicEvent from './components/CreatePublicEvent';
 import Signup from './components/Signup'
 import Login from './components/Login'
 import EditEvent from './components/EditEvent'
+import CalendarMyEvents from './pages/CalendarMyEvents'
+import CalendarAttendingEvents from './pages/CalendarAttendingEvents'
+
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
         <Route path='/create/public' element={<CreatePublicEvent  />} />
         <Route path='/signup' element={<Signup  />} />
         <Route path='/login' element={<Login  />} />
+        <Route path='/calendar' element={<CalendarMyEvents  />} />
+        <Route path='/calendar/my' element={<CalendarMyEvents  />} />
+        <Route path='/calendar/attending' element={<CalendarAttendingEvents  />} />
       </Routes>
 
 

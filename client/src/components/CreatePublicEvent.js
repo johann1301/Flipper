@@ -1,9 +1,16 @@
 import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
+import { AuthContext } from '../context/auth'
+import {  useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function AddPublicEvent() {
+
+	const {  user } = useContext(AuthContext);
+
+	const owner = user._id;
 
 	const [title, setTitle] = useState('')
 	const [date, setDate] = useState('')
@@ -25,6 +32,8 @@ export default function AddPublicEvent() {
 	const [description, setDescription] = useState('')
 	const [price, setPrice] = useState('')
 	const [imageUrl, setImageUrl] = useState('')
+
+	let navigate = useNavigate();
 
 
 // Clear the typed fields
@@ -80,13 +89,13 @@ export default function AddPublicEvent() {
       const requestBody = { imageUrl, title, date, time, address:{ street, number, zipcode, 
 		city }, category, options: { music: { musicGenre, musicType }, culture:{ cultureGenre, cultureType }, 
 		sport: { sportGenre, sportType }, education: { educationGenre, educationType }, other: { other } },
-		description, price }
+		description, price, owner }
 
 
         axios.post('/api/create/public', requestBody, { headers: { Authorization: `Bearer ${storedToken}` } } )
 		
 	      .then(response => {
-
+			navigate(`/calendar/my`)
 	      })
 
 	      .catch(err => console.log(err))

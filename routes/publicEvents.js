@@ -39,7 +39,7 @@ router.post('/create/public', fileUploader.single("imageUrl"), (req, res, next) 
 	const { imageUrl, title, date, time, address:{ street, number, zipcode, 
 		city }, category, options: { music: { musicGenre, musicType }, culture:{ cultureGenre, cultureType }, 
 		sport: { sportGenre, sportType }, education: { educationGenre, educationType }, other: { other } },
-		description, price } = req.body
+		description, price, owner } = req.body
     
 	PublicEvent.create({
 		imageUrl: imageUrl, 
@@ -74,12 +74,15 @@ router.post('/create/public', fileUploader.single("imageUrl"), (req, res, next) 
 			  educationGenre: educationGenre,
 			  educationType: educationType},
 
-		  other: {other: other}
+		  other: {other: other},
+
+		  
 
 		}, 
 
 		description: description, 
 		price: price,
+		owner: owner,
 		
 	})
 		.then(publicEvent => {
@@ -107,7 +110,7 @@ router.put('/events/:id', fileUploader.single("imageUrl"), (req, res, next) => {
 	const { imageUrl, title, date, time, address:{ street, number, zipcode, 
 		city }, category, options: { music: { musicGenre, musicType }, culture:{ cultureGenre, cultureType }, 
 		sport: { sportGenre, sportType }, education: { educationGenre, educationType }, other: { other } },
-		description, price } = req.body
+		description, price, owner } = req.body
 
 	PublicEvent.findByIdAndUpdate(req.params.id, {
 		imageUrl, 
@@ -152,6 +155,7 @@ router.put('/events/:id', fileUploader.single("imageUrl"), (req, res, next) => {
 
 		description, 
 		price,
+		owner,
 	}, { new: true })
 		.then(updatedPublicEvent => {
 			res.status(200).json(updatedPublicEvent)

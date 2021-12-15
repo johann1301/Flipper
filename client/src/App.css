@@ -257,9 +257,9 @@ border: 3px solid black;
   padding-top: 5px;
   margin-left: 25px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
-  
+ 
 }
 
 .inCard{
@@ -272,28 +272,91 @@ border: 3px solid black;
 
 .cardInfoBox{
 width:300px;
+/* border: 3px solid #363636; */
+border-radius: 20px;
 }
 
-.directInfo{
+.directInfoOne{
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 3px solid #dadada;
+  
+}
+
+.directInfoTwo{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   
 }
 
 
-.cardInfo{
-  width: 135px;
+.cardInfoOne{
+  width: 145px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-right: 3px solid #dadada;
+  font-weight: bold;
+}
+.cardInfoTwo{
+  width: 145px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  
+}
+.cardInfoThree{
+  width: 145px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-right: 3px solid #dadada;
+  font-weight: bold;
+}
+.cardInfoFour{
+  width: 145px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+
+}
+
+.titleContainer{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 70px;
+}
+
+.titleImg{
+position: absolute;
 }
 
 .cardTitle{
   width: 200px;
   margin-top: -8px;
   border-radius: 15px;
-  border: 3px solid white;
+  border: 1px solid white;
   background-color: #363636;
   color: white;
   padding: 5px 5px;
   margin: 5px;
+  position: relative;
+
 }
 
 .myButtonDirection{

@@ -48,27 +48,27 @@ export default function EventCard(props) {
 
   <Link class0='eventCardLink' to={`/events/${event._id}`}>
   
-  <p class='userName'>Username comes here</p>
+  <p class='userName'><box-icon type='solid' name='user-circle'></box-icon>Username comes here</p>
 
   <div class='inCard'>
   
-  
-  <img src={event.imageUrl} alt={event.title} width="250" height="130"></img>
+  <div class='titleContainer'>
+  <img class='titleImg' src={event.imageUrl} alt={event.title} width="300" height="130"></img>
 
   <h3 class='cardTitle'>{event.title}</h3>
-
+</div>
     <div class='cardInfoBox'>
 
      
 
-	 <div class='directInfo'>
+	 <div class='directInfoOne'>
 
 	 <div>
-      <p class='cardInfo'>{event.date} {event.time}PM</p>
+      <p class='cardInfoOne'>{event.date} {event.time}PM</p>
      </div>
 
      <div>
-      <p class='cardInfo'>
+      <p class='cardInfoTwo'>
         {event.options.music.musicType} 
         {event.options.culture.cultureType} 
         {event.options.sport.sportType} 
@@ -79,14 +79,14 @@ export default function EventCard(props) {
 
 	 </div>
 
-	 <div class='directInfo'>
+	 <div class='directInfoTwo'>
 
 	 <div>
-	  <p class='cardInfo'><box-icon name='map'></box-icon>{event.address.city}</p>
+	  <p class='cardInfoThree'><box-icon name='map'></box-icon>{event.address.city}</p>
      </div>
 
 	 <div>
-      <p class='cardInfo'>
+      <p class='cardInfoFour'>
         {event.options.music.musicGenre} 
         {event.options.culture.cultureGenre} 
         {event.options.sport.sportGenre} 
@@ -107,7 +107,11 @@ export default function EventCard(props) {
 })
 if (list.length === 0) {
   return <>
-  <h1>No events!!</h1>
+  <div class='myButtonDirection'>
+    <Link class='createButton' to={`/create`}>
+		Creat an event +
+    </Link>
+  </div>
   </>
 }
 return (

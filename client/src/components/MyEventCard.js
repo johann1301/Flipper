@@ -45,25 +45,27 @@ export default function EventCard(props) {
 
   <Link to={`/events/${event._id}`}>
   
-  <p class='userName'>{user.name}</p>
+  <p class='userName'><box-icon type='solid' name='user-circle'></box-icon>{user.name}</p>
 
   <div class='inCard'>
   
-  
-  <img src={event.imageUrl} alt={event.title} width="250" height="130"></img>
+  <div class='titleContainer'>
+  <img class='titleImg' src={event.imageUrl} alt={event.title} width="250" height="130"></img>
 
+  <h3 class='cardTitle'>{event.title}</h3>
+  </div>
     <div class='cardInfoBox'>
 
      
 
-	 <div class='directInfo'>
+	 <div class='directInfoOne'>
 
 	 <div>
-      <p class='cardInfo'>{event.date} {event.time}PM</p>
+      <p class='cardInfoOne'>{event.date} {event.time}PM</p>
      </div>
 
      <div>
-      <p class='cardInfo'>
+      <p class='cardInfoTwo'>
         {event.options.music.musicType} 
         {event.options.culture.cultureType} 
         {event.options.sport.sportType} 
@@ -74,14 +76,14 @@ export default function EventCard(props) {
 
 	 </div>
 
-	 <div class='directInfo'>
+	 <div class='directInfoTwo'>
 
 	 <div>
-	  <p class='cardInfo'><box-icon name='map'></box-icon>{event.address.city}</p>
+	  <p class='cardInfoThree'><box-icon name='map'></box-icon>{event.address.city}</p>
      </div>
 
 	 <div>
-      <p class='cardInfo'>
+      <p class='cardInfoFour'>
         {event.options.music.musicGenre} 
         {event.options.culture.cultureGenre} 
         {event.options.sport.sportGenre} 

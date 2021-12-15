@@ -30,27 +30,28 @@ export default function SearchForm(props) {
 
           
 
-		  <form  class='form' onSubmit={refresh} >
-		    <h1>Search for Event</h1>
+		  <form  class='searchForm' onSubmit={refresh} >
+		    
+            <h1 class='addressHeadline'>Search for Event</h1>
          
 			<input 
-			class='formInput'
+			class='searchFormInput'
 			  type='text'
 			  placeholder="City"
 			  onChange={e => props.setSearchCity(e.target.value)}
 			 />
 
             <input 
-			class='formInput'
+			class='searchFormInput'
 			  id='date'
 			  type='date'
 			  placeholder="Date"
 			  onChange={e => props.setSearchDate(e.target.value)}
 			 />
 
-<h2 class='categoryHeadline'>What kind of event are you looking for?</h2>
+            <h2 class='categoryHeadline'>What kind of event are you looking for?</h2>
            
-           <select class='formInput' onChange={onChangeHandeler } name="category">
+           <select class='searchFormInput' onChange={onChangeHandeler } name="category">
        
               <option class='selector' value="">-Category-</option>
               <option class='selector' value="music">Music</option>
@@ -69,7 +70,7 @@ export default function SearchForm(props) {
            
            <div >
 
-           <select class='formInput' onChange={e => props.setSearchMusicGenre(e.target.value)} name="musicGenre">
+           <select class='searchFormInput' onChange={e => props.setSearchMusicGenre(e.target.value)} name="musicGenre">
        
               <option class='selector' value="">-Genre-</option>
               <option class='selector' value="techno">Techno</option>
@@ -87,7 +88,7 @@ export default function SearchForm(props) {
    
            </select>
 
-           <select class='formInput' onChange={e => props.setSearchMusicType(e.target.value)} name="musicGenre">
+           <select class='searchFormInput' onChange={e => props.setSearchMusicType(e.target.value)} name="musicGenre">
        
                <option class='selector' value="">-Type-</option>
                <option class='selector' value="club">Club</option>
@@ -105,7 +106,7 @@ export default function SearchForm(props) {
            {props.searchCategory === 'culture' &&
                <div>
 
-               <select class='formInput' onChange={e => props.setSearchCultureType(e.target.value)} name="musicGenre">
+               <select class='searchFormInput' onChange={e => props.setSearchCultureType(e.target.value)} name="musicGenre">
        
                    <option class='selector' value="">-Type-</option>
                    <option class='selector' value="museum">Museum</option>
@@ -121,7 +122,7 @@ export default function SearchForm(props) {
 
 
                
-               <select class='formInput' onChange={e => props.setSearchCultureGenre(e.target.value)} name="musicGenre">
+               <select class='searchFormInput' onChange={e => props.setSearchCultureGenre(e.target.value)} name="musicGenre">
 
                    <option class='selector' value="">-Genre-</option>
                    <option class='selector' value="history">History</option>
@@ -139,7 +140,7 @@ export default function SearchForm(props) {
            {props.searchCategory === 'sport' &&
                <div>
 
-               <select class='formInput' onChange={e => props.setSearchSportType(e.target.value)} name="musicGenre">
+               <select class='searchFormInput' onChange={e => props.setSearchSportType(e.target.value)} name="musicGenre">
        
                <option class='selector' value="">-Type-</option>
                    <option class='selector' value="ball sport">Ball Sport</option>
@@ -158,7 +159,7 @@ export default function SearchForm(props) {
            {props.searchCategory === 'education' &&
                <div>
 
-               <select class='formInput' onChange={e => props.setSearchEducationGenre(e.target.value)} name="musicGenre">
+               <select class='searchFormInput' onChange={e => props.setSearchEducationGenre(e.target.value)} name="musicGenre">
                    
                    <option class='selector' value="">-Branch-</option>
                    <option class='selector' value="economy">Economy</option>
@@ -171,7 +172,7 @@ export default function SearchForm(props) {
                </select>
 
 
-               <select class='formInput' onChange={e => props.setSearchEducationType(e.target.value)} name="musicGenre">
+               <select class='searchFormInput' onChange={e => props.setSearchEducationType(e.target.value)} name="musicGenre">
                    
                    <option class='selector' value="">-Type-</option>
                    <option class='selector' value="lecture">Lecture</option>
@@ -189,7 +190,7 @@ export default function SearchForm(props) {
              </div>
            }
            <button class='details-btn' type='submit' >Reresh</button>
-
+          
 		  </form>
         
 		

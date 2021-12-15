@@ -13,14 +13,14 @@ export default function CreateEvent() {
 		<div class='switchBar'>
 		
 
-        <Link class='switchBarLinkOff' to={'/calendar/my'}>
+        <Link class='switchBarLinkOn' to={'/calendar/my'}>
 
 			My Events
             
             
         </Link>
 
-        <Link class='switchBarLinkOn' to={'/calendar/attending'}>
+        <Link class='switchBarLinkOff' to={'/calendar/attending'}>
            
              Attending Events 
               

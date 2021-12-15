@@ -9,9 +9,7 @@ export default function EventCard(props) {
 
     const {  user } = useContext(AuthContext);
 
-    const LoggedInOwner = user._id 
-
-    console.log(user._id)
+    const LoggedInOwner = user?._id 
 
   const storedToken = localStorage.getItem('authToken')
 
@@ -111,7 +109,9 @@ if (list.length === 0) {
 }
 return (
   <>
+  <div class='myList'>
   {list}
+  </div>
   </>
 
 )

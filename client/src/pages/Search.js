@@ -22,25 +22,13 @@ export default function Search() {
 
 	return (
 		<>
+		
 			<h1>All the Events</h1>
-			
+
+			<div class='order'>
 			<div class='flex'>
-            <EventCard 
-			searchCity={searchCity} 
-			searchDate={searchDate} 
-			searchCategory={searchCategory}
-			searchMusicGenre={searchMusicGenre}
-			searchMusicType={searchMusicType}
-			searchCultureGenre={searchCultureGenre}
-			searchCultureType={searchCultureType}
-			searchSportType={searchSportType}
-			searchEducationGenre={searchEducationGenre}
-			searchEducationType={searchEducationType}
-			/>
 
-            </div>
-
-			<SearchForm 
+			<SearchForm class='searchForm'
 			searchDate={searchDate}
 			searchCity={searchCity}
 			setSearchCity={setSearchCity} 
@@ -55,6 +43,25 @@ export default function Search() {
 			setSearchEducationGenre={setSearchEducationGenre}
 			setSearchEducationType={setSearchEducationType}
 			/>
+           <div class='eventCardOrder'>
+            <EventCard
+			searchCity={searchCity} 
+			searchDate={searchDate} 
+			searchCategory={searchCategory}
+			searchMusicGenre={searchMusicGenre}
+			searchMusicType={searchMusicType}
+			searchCultureGenre={searchCultureGenre}
+			searchCultureType={searchCultureType}
+			searchSportType={searchSportType}
+			searchEducationGenre={searchEducationGenre}
+			searchEducationType={searchEducationType}
+			/>
+			</div>
+			</div>
+            
+
+			
+			</div>
 		</>
 	)
 }

@@ -36,7 +36,8 @@ export default function CreateEvent() {
 
         
 		<div class='myEventCardOrder'>
-		<MyEventCard />
+		
+		<MyEventCard  class='eventCardOrder'/>
 		
 		</div>
 		

@@ -245,6 +245,7 @@ border: 3px solid black;
 }
 
 .myEventCardOrder{
+  width:  100vw;
   text-decoration: none;
   display: flex;
   flex-wrap: wrap;
@@ -339,7 +340,7 @@ border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  margin-top: 70px;
+  margin-top: 120px;
 }
 
 .titleImg{
@@ -348,13 +349,13 @@ position: absolute;
 
 .cardTitle{
   width: 200px;
-  margin-top: -8px;
+  /* margin-top: -8px; */
   border-radius: 15px;
   border: 1px solid white;
   background-color: #363636;
   color: white;
-  padding: 5px 5px;
-  margin: 5px;
+  padding: 0px 5px;
+  margin: -17px;
   position: relative;
 
 }

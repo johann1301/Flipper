@@ -46,7 +46,7 @@ export default function EventCard(props) {
 		
   <div class='eventCard'>
 
-  <Link to={`/events/${event._id}`}>
+  <Link class0='eventCardLink' to={`/events/${event._id}`}>
   
   <p class='userName'>Username comes here</p>
 
@@ -54,6 +54,8 @@ export default function EventCard(props) {
   
   
   <img src={event.imageUrl} alt={event.title} width="250" height="130"></img>
+
+  <h3 class='cardTitle'>{event.title}</h3>
 
     <div class='cardInfoBox'>
 

@@ -37,21 +37,26 @@ export default function Login() {
 	}
 
 	return (
-		<div>
-			<h1>Login</h1>
-			<form onSubmit={handleSubmit}>
-				<label>Email: </label>
-				<input type="text" name="email" value={email} onChange={handleEmail} />
-				<label>Password: </label>
-				<input type="password" value={password} onChange={handlePassword} />
+		<>
+		<div class='loginBox'>
 
-				<button type="submit">Log in</button>
+			<div class='switchBox'>
+
+			<form class='startForm' onSubmit={handleSubmit}>
+			<h1 class='addressHeadline'>Login</h1>
+				<input class="formInput" type="text" name="email" value={email} onChange={handleEmail} placeholder='Email' />
+				
+				<input class="formInput" type="password" value={password} onChange={handlePassword} placeholder='Password' />
+
+				<button class='details-btn' type="submit">Log in</button>
 			</form>
 
-			{errorMessage && <p>{errorMessage}</p>}
+			<Link class='startSwitchBox' to='/signup'><h1>Signup</h1></Link>
 
-			<p>Don't have an accoun?</p>
-			<Link to='/signup'>Signup</Link>
+			</div>
+			
 		</div>
+		{errorMessage && <p>{errorMessage}</p>}
+		</>
 	)
 }

@@ -1,7 +1,7 @@
-/* *{
-  border: 3px solid black;
+*{
+  text-decoration: none;
   
-} */
+}
 
 .App {
   text-align: center;
@@ -31,6 +31,8 @@
     z-index:100;
   background-color: #363636;
   padding: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .button{
@@ -191,7 +193,7 @@ border: 3px solid black;
   width: 300px;
   height: 100vh;
   padding: 30px;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   /* box-shadow: 0px 3px 21px 3px rgba(0,0,0,0.63);  */
   display: flex;
   flex-direction: column;
@@ -218,6 +220,10 @@ border: 3px solid black;
 
 /* Event Card */
 
+.eventCardLink{
+  text-decoration: none;
+}
+
 .flex{
   display: flex;
   align-items: flex-start;
@@ -230,6 +236,7 @@ border: 3px solid black;
 }
 
 .eventCard{
+  text-decoration: none;
   width: 300px;
   box-shadow: 0px 3px 10px 3px rgba(0,0,0,0.63);
   border-radius: 20px;
@@ -238,12 +245,15 @@ border: 3px solid black;
 }
 
 .myEventCardOrder{
+  text-decoration: none;
   display: flex;
   flex-wrap: wrap;
   
 }
 
 .userName{
+  text-decoration: none;
+  color: black;
   padding-top: 5px;
   margin-left: 25px;
   display: flex;
@@ -257,6 +267,7 @@ border: 3px solid black;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: black;
 }
 
 .cardInfoBox{
@@ -274,6 +285,25 @@ width:300px;
   width: 135px;
 }
 
+.cardTitle{
+  width: 200px;
+  margin-top: -8px;
+  border-radius: 15px;
+  border: 3px solid white;
+  background-color: #363636;
+  color: white;
+  padding: 5px 5px;
+  margin: 5px;
+}
+
+.myButtonDirection{
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Button / Links */
 
 .details-link{
@@ -286,7 +316,46 @@ width:300px;
   font-weight: bold;
   padding: 5px 10px;
   margin: 5px;
+  display: flex;
 }
+.details-button{
+  text-decoration: none;
+  margin-top: 8px;
+  border-radius: 15px;
+  border: 3px solid black;
+  background-color: #363636;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  margin-left: 10%;
+
+}
+
+.logo{
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  margin-right: 10%;
+}
+
+.LogoIcons{
+  margin-right: 5px;
+}
+
+.icons{
+  margin-left: 5px;
+}
+
+
 
 .details-link:hover{
   text-decoration: none;
@@ -332,7 +401,7 @@ width:300px;
 }
 
 .switchBar{
- 
+  
   border-radius: 20px;
   margin-top: 8px; 
   box-shadow: 0px 3px 21px 3px rgba(0,0,0,0.63);
@@ -377,4 +446,48 @@ width:300px;
   display: flex;
   flex-direction: row;
 }
+
+/* Login */
+
+.loginBox{
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.switchBox{
+  box-shadow: 0px 3px 21px 3px rgba(0,0,0,0.63);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.startForm{
+  width: 400px;
+  height: 500px;
+  box-shadow: 0px 3px 21px 3px rgba(0,0,0,0.63);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #363636;
+  border-radius: 20px;
+  
+}
+
+.startSwitchBox{
+  width: 400px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  border-radius: 20px;
+}
+
 

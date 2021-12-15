@@ -103,9 +103,13 @@ export default function EventCard(props) {
 
 
 if (list.length === 0) {
-  return <>
-  <h1>No events!!</h1>
-  </>
+  return (
+  <div class='myButtonDirection'>
+    <Link class='createButton' to={`/create`}>
+		Creat an event +
+    </Link>
+  </div>
+  )
 }
 return (
   <>

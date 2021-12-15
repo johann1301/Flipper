@@ -35,31 +35,33 @@ export default function Signup() {
 	}
 
 	return (
-		<div>
-			<h1>Signup </h1>
 
-            <form onSubmit={handleSubmit}>
+		<>
+		<div class='loginBox'>
+			
+		<div class='switchBox'>
 
-                <label>Email: </label>
-				<input type="text" name="email" value={email} onChange={handleEmail} />
+		<Link class='startSwitchBox' to='/login'><h1>Login</h1></Link>
+
+            <form class='startForm' onSubmit={handleSubmit}>
+
+			    <h1 class='addressHeadline'>Signup </h1>
+
+				<input class="formInput" type="text" name="email" value={email} onChange={handleEmail} placeholder='Email'/>
 				
-                <label>Password: </label>
-				<input type="password" value={password} onChange={handlePassword} />
+				<input class="formInput" type="password" value={password} onChange={handlePassword} placeholder='Password'/>
 				
-                <label>Name: </label>
-				<input type="text" value={name} onChange={handleName} />
+				<input class="formInput" type="text" value={name} onChange={handleName} placeholder='Name'/>
 
-                <label>Birthday: </label>
-				<input type="date" value={birthday} onChange={handleBirthday} />
+                <label class='addressHeadline'>Birthday: </label>
+				<input class="formInput" type="date" value={birthday} onChange={handleBirthday} />
 
-				<button type="submit">Sign Up</button>
-            </form>
-
-            {errorMessage && <p>{errorMessage}</p>}
-
-              <p>Already have an accoun?</p>
-              <Link to='/login'>Login</Link>
-
+				<button class='details-btn' type="submit">Sign Up</button>
+            </form> 
+              
+         </div>
+		 {errorMessage && <p>{errorMessage}</p>}
 		</div>
+		</>
 	)
 }

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import 'boxicons'
+
 
 import MyEventCard from '../components/MyEventCard'
 
@@ -14,7 +14,7 @@ export default function CreateEvent() {
 
 	return (
 		<>
-		<h1>My Events</h1>
+		<h1 color='white'>Events</h1>
 		<div class='switchSection'>
 		<div class='switchBar'>
 		

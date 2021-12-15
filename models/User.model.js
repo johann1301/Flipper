@@ -16,7 +16,7 @@ const userSchema = new Schema(
       type: String,
       required: true
     },
-    birthday: String
+    birthday: String,
   });
 
 const User = model("User", userSchema);

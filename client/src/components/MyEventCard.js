@@ -11,6 +11,8 @@ export default function EventCard(props) {
 
     const LoggedInOwner = user._id 
 
+    console.log(user._id)
+
   const storedToken = localStorage.getItem('authToken')
 
   const [events, setEvents] = useState([])
@@ -33,19 +35,19 @@ export default function EventCard(props) {
 		return <></>
 	}
         
-    
+   
 
   let list = events
-  .filter(event => (event.owner === LoggedInOwner))
+  .filter(event => (event.owner === LoggedInOwner)) 
   .map ( event =>{
-
+ 
 	return (
 		
   <div class='eventCard'>
 
   <Link to={`/events/${event._id}`}>
   
-  <p class='userName'>Username comes here</p>
+  <p class='userName'>{user.name}</p>
 
   <div class='inCard'>
   
@@ -101,6 +103,7 @@ export default function EventCard(props) {
 	)
 })
 
+
 if (list.length === 0) {
   return <>
   <h1>No events!!</h1>
@@ -114,3 +117,4 @@ return (
 )
 
 }
+

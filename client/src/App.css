@@ -185,6 +185,7 @@ margin-top: 20px;
 }
 
 .userName{
+  margin-top: 25px;
   margin-left: 25px;
   display: flex;
   flex-direction: column;

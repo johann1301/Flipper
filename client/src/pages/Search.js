@@ -19,7 +19,6 @@ export default function Search() {
 	const [searchEducationType, setSearchEducationType] = useState('')
 
 
-    console.log(searchDate.substring(0,4))
 
 	return (
 		<>

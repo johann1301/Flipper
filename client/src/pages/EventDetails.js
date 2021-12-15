@@ -1,15 +1,34 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
+import { AuthContext } from '../context/auth'
+import {  useContext } from 'react'
 
 export default function EventDetails() {
+
+	
+
+	const {  user } = useContext(AuthContext);
+
+	const LoggedInOwner = user?._id
+
+	
 
 	const storedToken = localStorage.getItem('authToken')
 
 	const [event, setEvent] = useState(null)
 
 	const { id } = useParams()
+
+	const deleteProject = () => {
+		axios.delete(`/api/events/${id}`, { headers: { Authorization: `Bearer ${storedToken}` } })
+			.then(() => {
+				
+			})
+			.catch(err => console.log(err))
+	}
+
 
 	useEffect(() => {
 
@@ -20,6 +39,14 @@ export default function EventDetails() {
 			.catch(err => console.log(err))
 
 	}, [])
+
+	const EventOwner = event?.owner
+
+	let myEvent = false
+
+	if(EventOwner === LoggedInOwner){
+       myEvent = true
+	}
 
 	return (
 		<>
@@ -44,6 +71,23 @@ export default function EventDetails() {
                     </h3>
 					<p>{event.description}</p>
 					<h3>{event.price}€</h3>
+
+					
+					{myEvent ?(
+                    <>
+	                <Link class='details-link' to={`/events/edit/${id}`}>
+			         Edit
+                    </Link>
+
+		            <Link class='details-link' onClick={deleteProject} to={'/calendar/my'}>
+					Delete
+                    </Link>
+	                </>
+                    ):(
+                    <>
+    
+                    </>
+                    )}
 	
       
 					

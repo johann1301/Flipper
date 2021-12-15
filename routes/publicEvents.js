@@ -163,7 +163,7 @@ router.put('/events/:id', fileUploader.single("imageUrl"), (req, res, next) => {
 		.catch(err => next(err))
 })
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/events/:id', (req, res, next) => {
 	PublicEvent.findByIdAndDelete(req.params.id)
 		.then(() => {
 			res.status(200).json({ message: 'Event deleted' })

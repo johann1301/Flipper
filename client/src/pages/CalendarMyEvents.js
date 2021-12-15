@@ -34,10 +34,10 @@ export default function CreateEvent() {
 		</div>
 		</div>
 
-        <div class='flex'>
-		<div class='eventCardOrder'>
+        
+		<div class='myEventCardOrder'>
 		<MyEventCard />
-		</div>
+		
 		</div>
 		
 		</>

@@ -227,7 +227,6 @@ border: 3px solid black;
 .eventCardOrder{
   display: flex;
   flex-wrap: wrap;
-  border: 3px solid black;
 }
 
 .eventCard{
@@ -236,6 +235,12 @@ border: 3px solid black;
   border-radius: 20px;
   margin: 20px;
 
+}
+
+.myEventCardOrder{
+  display: flex;
+  flex-wrap: wrap;
+  
 }
 
 .userName{

@@ -5,7 +5,7 @@ import axios from 'axios'
 import { AuthContext } from '../context/auth'
 import {  useContext } from 'react'
 
-export default function EventCard(props) {
+export default function Flipper(props) {
 
     const {  user } = useContext(AuthContext);
 
@@ -20,7 +20,7 @@ export default function EventCard(props) {
 		axios.get('/api/events', { headers: { Authorization: `Bearer ${storedToken}` } })
 			.then(response => {
 				
-				setEvents(response.data)
+				setEvents(response.data[Math.floor(Math.random() * response.data.length -1 )])
 			})
 			.catch(err => console.log(err))
 	}
@@ -32,27 +32,29 @@ export default function EventCard(props) {
 	if (events.length === 0) {
 		return <></>
 	}
-        
-   
 
-  let list = events
-  .filter(event => (event.owner === LoggedInOwner)) 
-  .map ( event =>{
+  
  
 	return (
-		
-  <div key={event._id} className='eventCard'>
+		<>
+        <div className='flipper'>
+        <h1>Your Activity for Today</h1>
 
-  <Link to={`/events/${event._id}`}>
+        <button className='shuffle-btn' onClick={getAllEvents}>Shuffle <box-icon class='icons' name='shuffle' color='#ffffff' ></box-icon></button>
+        
+
+  <div key={events._id} className='eventCard'>
+
+  <Link to={`/events/${events._id}`}>
   
   <p className='userName'><box-icon type='solid' name='user-circle'></box-icon>{user.name}</p>
 
   <div className='inCard'>
   
   <div className='titleContainer'>
-  <img className='titleImg' src={event.imageUrl} alt={event.title} width="300" height="130"></img>
+  <img className='titleImg' src={events.imageUrl} alt={events.title} width="300" height="130"></img>
 
-  <h3 className='cardTitle'>{event.title}</h3>
+  <h3 className='cardTitle'>{events.title}</h3>
   </div>
     <div className='cardInfoBox'>
 
@@ -61,16 +63,16 @@ export default function EventCard(props) {
 	 <div className='directInfoOne'>
 
 	 <div>
-      <p className='cardInfoOne'>{event.date} {event.time}PM</p>
+      <p className='cardInfoOne'>{events.date} {events.time}PM</p>
      </div>
 
      <div>
       <p className='cardInfoTwo'>
-        {event.options.music.musicType} 
-        {event.options.culture.cultureType} 
-        {event.options.sport.sportType} 
-        {event.options.education.educationType}
-        {event.options.other.other}
+        {events.options.music.musicType} 
+        {events.options.culture.cultureType} 
+        {events.options.sport.sportType} 
+        {events.options.education.educationType}
+        {events.options.other.other}
       </p>
      </div>
 
@@ -79,15 +81,15 @@ export default function EventCard(props) {
 	 <div className='directInfoTwo'>
 
 	 <div>
-	  <p className='cardInfoThree'><box-icon name='map'></box-icon>{event.address.city}</p>
+	  <p className='cardInfoThree'><box-icon name='map'></box-icon>{events.address.city}</p>
      </div>
 
 	 <div>
       <p className='cardInfoFour'>
-        {event.options.music.musicGenre} 
-        {event.options.culture.cultureGenre} 
-        {event.options.sport.sportGenre} 
-        {event.options.education.educationGenre}
+        {events.options.music.musicGenre} 
+        {events.options.culture.cultureGenre} 
+        {events.options.sport.sportGenre} 
+        {events.options.education.educationGenre}
       </p>
 	 </div>
 
@@ -100,27 +102,8 @@ export default function EventCard(props) {
  </Link>
 </div>
 
+</div>
+</>
 	)
-})
-
-
-if (list.length === 0) {
-  return (
-  <div className='myButtonDirection'>
-    <Link className='createButton' to={`/create`}>
-		Creat an event +
-    </Link>
-  </div>
-  )
-} 
-return (
-  <>
-  <div className='myList'>
-  {list}
-  </div>
-  </>
-
-)
-
-}
+    }
 

@@ -23,7 +23,15 @@ export default function EventCard() {
          <box-icon type='solid' name='network-chart' size='lg' color='#ffffff'></box-icon>Flipper
         </Link>
 
-        <Link className='details-link' to={'/'}>
+        
+
+        
+
+        
+{isLoggedIn ?(
+    <>
+
+    <Link className='details-link' to={'/'}>
 			Home <box-icon class='icons' name='home' type='solid' color='#ffffff'  ></box-icon>
         </Link>
 
@@ -51,15 +59,9 @@ export default function EventCard() {
 			Create an Event<box-icon class='icons' type='solid' name='plus-circle' color='#ffffff'></box-icon>
         </Link>
 
-        
-
-        
-{isLoggedIn ?(
-    <>
-
-        <button className='details-button' onClick={logoutUser}>
+        <Link className='details-button' onClick={logoutUser} to={'/login'}>
         Logout<box-icon class='icons' name='log-out' type='solid' color='#ffffff' ></box-icon>
-        </button>   
+        </Link>   
 	</>
 ):(
     <>

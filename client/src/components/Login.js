@@ -28,7 +28,7 @@ export default function Login() {
 				const token = response.data.authToken
 				// call login user function from auth context
 				loginUser(token)
-				navigate('/')
+				navigate('/events')
 			})
 			.catch(err => {
 				const errorDescrition = err.response.data.message

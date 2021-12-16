@@ -11,6 +11,7 @@ import Login from './components/Login'
 import EditEvent from './components/EditEvent'
 import CalendarMyEvents from './pages/CalendarMyEvents'
 import CalendarAttendingEvents from './pages/CalendarAttendingEvents'
+import Flipper from './pages/Flipper'
 
 
 
@@ -31,6 +32,7 @@ function App() {
         <Route path='/calendar' element={<CalendarMyEvents  />} />
         <Route path='/calendar/my' element={<CalendarMyEvents  />} />
         <Route path='/calendar/attending' element={<CalendarAttendingEvents  />} />
+        <Route path='/flipper' element={<Flipper  />} />
         
       </Routes>
 

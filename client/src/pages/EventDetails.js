@@ -52,7 +52,9 @@ export default function EventDetails() {
 		<>
 			{event && (
 				<>
-					
+					<div className='detailsBoxOrder'>
+
+					<div className='detailsBox'>
 					<h1>{event.title}</h1>
 					<img src={event.imageUrl} alt={event.title} width="600" height="300"></img>
 					<h3>{event.date} Starting at:{event.time}</h3>
@@ -75,11 +77,11 @@ export default function EventDetails() {
 					
 					{myEvent ?(
                     <>
-	                <Link className='details-link' to={`/events/edit/${id}`}>
+	                <Link className='detail-btn' to={`/events/edit/${id}`}>
 			         Edit
                     </Link>
 
-		            <Link className='details-link' onClick={deleteProject} to={'/calendar/my'}>
+		            <Link className='detail-btn' onClick={deleteProject} to={'/calendar/my'}>
 					Delete
                     </Link>
 	                </>
@@ -88,8 +90,8 @@ export default function EventDetails() {
     
                     </>
                     )}
-	
-      
+					</div>
+					</div>
 					
 				</>
 			)}

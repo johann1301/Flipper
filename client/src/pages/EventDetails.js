@@ -75,11 +75,11 @@ export default function EventDetails() {
 					
 					{myEvent ?(
                     <>
-	                <Link class='details-link' to={`/events/edit/${id}`}>
+	                <Link className='details-link' to={`/events/edit/${id}`}>
 			         Edit
                     </Link>
 
-		            <Link class='details-link' onClick={deleteProject} to={'/calendar/my'}>
+		            <Link className='details-link' onClick={deleteProject} to={'/calendar/my'}>
 					Delete
                     </Link>
 	                </>

@@ -24,7 +24,6 @@ export default function AddPublicEvent() {
 	const [musicType, setMusicType] = useState('')
 	const [cultureGenre, setCultureGenre] = useState('')
 	const [cultureType, setCultureType] = useState('')
-	const [sportGenre, setSportGenre] = useState('')
 	const [sportType, setSportType] = useState('')
 	const [educationGenre, setEducationGenre] = useState('')
 	const [educationType, setEducationType] = useState('')
@@ -88,7 +87,7 @@ export default function AddPublicEvent() {
 	
       const requestBody = { imageUrl, title, date, time, address:{ street, number, zipcode, 
 		city }, category, options: { music: { musicGenre, musicType }, culture:{ cultureGenre, cultureType }, 
-		sport: { sportGenre, sportType }, education: { educationGenre, educationType }, other: { other } },
+		sport: { sportType }, education: { educationGenre, educationType }, other: { other } },
 		description, price, owner }
 
 
@@ -108,13 +107,13 @@ export default function AddPublicEvent() {
 
           
 
-		  <form class='form' onSubmit={handleSubmit} enctype="multipart/form-data">
-		    <h1 class='createHeadline'>Public event</h1>
+		  <form className='form' onSubmit={handleSubmit} encType="multipart/form-data">
+		    <h1 className='createHeadline'>Public event</h1>
 
-			<h2 class='pictreHeadline'>Title picture:</h2>
+			<h2 className='pictreHeadline'>Title picture:</h2>
 
 			<input
-          class="formInput"
+          className="formInput"
           name="imageUrl"
           type="file"
           //   value={imageUrl}
@@ -123,7 +122,7 @@ export default function AddPublicEvent() {
         />
             
 			<input 
-			class='formInput'
+			className='formInput'
 			  id='title'
 			  type='text'
 			  value={title}
@@ -133,7 +132,7 @@ export default function AddPublicEvent() {
 
 			
 			<input 
-			class='formInput'
+			className='formInput'
 			  id='date'
 			  type='date'
 			  value={date}
@@ -143,7 +142,7 @@ export default function AddPublicEvent() {
 
             
 			<input 
-			class='formInput'
+			className='formInput'
 			  id='time'
 			  type='time'
 			  value={time}
@@ -151,13 +150,13 @@ export default function AddPublicEvent() {
 			  onChange={e => setTime(e.target.value)}
 			 />
 
-			 <h2 class='addressHeadline'>Address:</h2>
+			 <h2 className='addressHeadline'>Address:</h2>
 
-          <div class='addAddress'>
+          <div className='addAddress'>
 
             
 			<input 
-			class='formInput'
+			className='formInput'
 			  id='street'
 			  type='text'
 			  value={street}
@@ -167,7 +166,7 @@ export default function AddPublicEvent() {
 
             
 			<input 
-			class='formInputNum'
+			className='formInputNum'
 			  id='number'
 			  type='number'
 			  value={number}
@@ -177,11 +176,11 @@ export default function AddPublicEvent() {
 
           </div>
 
-		  <div class='addAddress'>
+		  <div className='addAddress'>
 
             
 			<input 
-			class='formInputNum'
+			className='formInputNum'
 			  id='zipcode'
 			  type='number'
 			  value={zipcode}
@@ -190,7 +189,7 @@ export default function AddPublicEvent() {
 			 />
 
 			<input 
-			class='formInput'
+			className='formInput'
 			  id='city'
 			  type='text'
 			  value={city}
@@ -200,16 +199,16 @@ export default function AddPublicEvent() {
 
           </div>
 
-		  <h2 class='categoryHeadline'>What kind of event are you hosting?</h2>
+		  <h2 className='categoryHeadline'>What kind of event are you hosting?</h2>
            
-		    <select class='formInput' onChange={onChangeHandeler} name="category">
+		    <select className='formInput' onChange={onChangeHandeler} name="category">
 		
-		       <option class='selector' value="">-Category-</option>
-		       <option class='selector' value="Music">Music</option>
-		       <option class='selector' value="Culture">Culture</option>
-		       <option class='selector' value="Sport">Sport</option>
-		       <option class='selector' value="Education">Education</option>
-		       <option class='selector' value="Other">Other</option>
+		       <option className='selector' value="">-Category-</option>
+		       <option className='selector' value="Music">Music</option>
+		       <option className='selector' value="Culture">Culture</option>
+		       <option className='selector' value="Sport">Sport</option>
+		       <option className='selector' value="Education">Education</option>
+		       <option className='selector' value="Other">Other</option>
 		       
 	
             </select>
@@ -221,33 +220,33 @@ export default function AddPublicEvent() {
 			
             <div >
 
-			<select class='formInput' onChange={e => setMusicGenre(e.target.value)} name="musicGenre">
+			<select className='formInput' onChange={e => setMusicGenre(e.target.value)} name="musicGenre">
 		
-		       <option class='selector' value="">-Genre-</option>
-		       <option class='selector' value="Techno">Techno</option>
-		       <option class='selector' value="House">House</option>
-		       <option class='selector' value="Hip Hop">Hip Hop</option>
-		       <option class='selector' value="Rock">Rock</option>
-		       <option class='selector' value="R&B">R&B</option>
-			   <option class='selector' value="Pop">Pop</option>
-		       <option class='selector' value="Old school">Old School</option>
-		       <option class='selector' value="Classic">Classic</option>
-		       <option class='selector' value="Schlager">Schlager</option>
-		       <option class='selector' value="Other">Other</option>
+		       <option className='selector' value="">-Genre-</option>
+		       <option className='selector' value="Techno">Techno</option>
+		       <option className='selector' value="House">House</option>
+		       <option className='selector' value="Hip Hop">Hip Hop</option>
+		       <option className='selector' value="Rock">Rock</option>
+		       <option className='selector' value="R&B">R&B</option>
+			   <option className='selector' value="Pop">Pop</option>
+		       <option className='selector' value="Old school">Old School</option>
+		       <option className='selector' value="Classic">Classic</option>
+		       <option className='selector' value="Schlager">Schlager</option>
+		       <option className='selector' value="Other">Other</option>
 		       
 		       
 	
             </select>
 
-			<select class='formInput' onChange={e => setMusicType(e.target.value)} name="musicGenre">
+			<select className='formInput' onChange={e => setMusicType(e.target.value)} name="musicGenre">
 		
-		        <option class='selector' value="">-Type-</option>
-		        <option class='selector' value="Club">Club</option>
-		        <option class='selector' value="Bar">Bar</option>
-		        <option class='selector' value="Open air">Open Air</option>
-		        <option class='selector' value="Festival">Festival</option>
-		        <option class='selector' value="Concert">Concert</option>
-		        <option class='selector' value="Other">Other</option>
+		        <option className='selector' value="">-Type-</option>
+		        <option className='selector' value="Club">Club</option>
+		        <option className='selector' value="Bar">Bar</option>
+		        <option className='selector' value="Open air">Open Air</option>
+		        <option className='selector' value="Festival">Festival</option>
+		        <option className='selector' value="Concert">Concert</option>
+		        <option className='selector' value="Other">Other</option>
 		
 	        </select>
 
@@ -257,30 +256,30 @@ export default function AddPublicEvent() {
 			{category === 'Culture' &&
                 <div>
 
-				<select class='formInput' onChange={e => setCultureType(e.target.value)} name="musicGenre">
+				<select className='formInput' onChange={e => setCultureType(e.target.value)} name="musicGenre">
 		
-		            <option class='selector' value="">-Type-</option>
-		            <option class='selector' value="Museum">Museum</option>
-		            <option class='selector' value="Gallery">Gallery</option>
-		            <option class='selector' value="Theater">Theater</option>
-		            <option class='selector' value="Movies">Movies</option>
-		            <option class='selector' value="Books">Books</option>
-			        <option class='selector' value="Fashion">Fashion</option>
-		            <option class='selector' value="Exhibition">Exhibition</option>
-		            <option class='selector' value="Other">Other</option>
+		            <option className='selector' value="">-Type-</option>
+		            <option className='selector' value="Museum">Museum</option>
+		            <option className='selector' value="Gallery">Gallery</option>
+		            <option className='selector' value="Theater">Theater</option>
+		            <option className='selector' value="Movies">Movies</option>
+		            <option className='selector' value="Books">Books</option>
+			        <option className='selector' value="Fashion">Fashion</option>
+		            <option className='selector' value="Exhibition">Exhibition</option>
+		            <option className='selector' value="Other">Other</option>
 		        
                 </select>
 
 
 				
-				<select class='formInput' onChange={e => setCultureGenre(e.target.value)} name="musicGenre">
+				<select className='formInput' onChange={e => setCultureGenre(e.target.value)} name="musicGenre">
 
-		            <option class='selector' value="">-Genre-</option>
-		            <option class='selector' value="History">History</option>
-		            <option class='selector' value="Modern">Modern</option>
-		            <option class='selector' value="Pop culture">Pop Culture</option>
-		            <option class='selector' value="Future">Future</option>
-		            <option class='selector' value="Other">Other</option>
+		            <option className='selector' value="">-Genre-</option>
+		            <option className='selector' value="History">History</option>
+		            <option className='selector' value="Modern">Modern</option>
+		            <option className='selector' value="Pop culture">Pop Culture</option>
+		            <option className='selector' value="Future">Future</option>
+		            <option className='selector' value="Other">Other</option>
 			       
 				</select>
 
@@ -291,15 +290,15 @@ export default function AddPublicEvent() {
             {category === 'Sport' &&
                 <div>
 
-				<select class='formInput' onChange={e => setSportType(e.target.value)} name="musicGenre">
+				<select className='formInput' onChange={e => setSportType(e.target.value)} name="musicGenre">
 		
-				<option class='selector' value="">-Type-</option>
-		            <option class='selector' value="Ball sport">Ball Sport</option>
-		            <option class='selector' value="Cardio">Cardio</option>
-		            <option class='selector' value="Yoga">Yoga</option>
-		            <option class='selector' value="Weights training">Weights Training</option>
-		            <option class='selector' value="Chess">Chess</option>
-					<option class='selector' value="Other">Other</option>
+				<option className='selector' value="">-Type-</option>
+		            <option className='selector' value="Ball sport">Ball Sport</option>
+		            <option className='selector' value="Cardio">Cardio</option>
+		            <option className='selector' value="Yoga">Yoga</option>
+		            <option className='selector' value="Weights training">Weights Training</option>
+		            <option className='selector' value="Chess">Chess</option>
+					<option className='selector' value="Other">Other</option>
 			       
 				</select>
 
@@ -310,28 +309,28 @@ export default function AddPublicEvent() {
             {category === 'Education' &&
                 <div>
 
-				<select class='formInput' onChange={e => setEducationGenre(e.target.value)} name="musicGenre">
+				<select className='formInput' onChange={e => setEducationGenre(e.target.value)} name="musicGenre">
 				    
-					<option class='selector' value="">-Branch-</option>
-		            <option class='selector' value="Economy">Economy</option>
-		            <option class='selector' value="Politics">Politics</option>
-		            <option class='selector' value="Environment">Environment</option>
-		            <option class='selector' value="Marketing">Marketing</option>
-		            <option class='selector' value="Information technology">Information Technology</option>
-					<option class='selector' value="Other">Other</option>
+					<option className='selector' value="">-Branch-</option>
+		            <option className='selector' value="Economy">Economy</option>
+		            <option className='selector' value="Politics">Politics</option>
+		            <option className='selector' value="Environment">Environment</option>
+		            <option className='selector' value="Marketing">Marketing</option>
+		            <option className='selector' value="Information technology">Information Technology</option>
+					<option className='selector' value="Other">Other</option>
 		            
 				</select>
 
 
-				<select class='formInput' onChange={e => setEducationType(e.target.value)} name="musicGenre">
+				<select className='formInput' onChange={e => setEducationType(e.target.value)} name="musicGenre">
 				    
-					<option class='selector' value="">-Type-</option>
-		            <option class='selector' value="Lecture">Lecture</option>
-		            <option class='selector' value="Discussion">Discussion</option>
-		            <option class='selector' value="Continuing education">Continuing education</option>
-		            <option class='selector' value="Bootcamp">Bootcamp</option>
-		            <option class='selector' value="Open house">Open House</option>
-					<option class='selector' value="Other">Other</option>
+					<option className='selector' value="">-Type-</option>
+		            <option className='selector' value="Lecture">Lecture</option>
+		            <option className='selector' value="Discussion">Discussion</option>
+		            <option className='selector' value="Continuing education">Continuing education</option>
+		            <option className='selector' value="Bootcamp">Bootcamp</option>
+		            <option className='selector' value="Open house">Open House</option>
+					<option className='selector' value="Other">Other</option>
 		            
 			       
 				</select>
@@ -344,7 +343,7 @@ export default function AddPublicEvent() {
             {category === 'Other' &&
                 <div>
 			        <input 
-			         class='formInput'
+			         className='formInput'
 			         id='other'
 			         type='text'
 			         value={other}
@@ -354,10 +353,10 @@ export default function AddPublicEvent() {
 			    </div>
             }
 
-			<h2 class='categoryHeadline'>What is your event about?</h2>
+			<h2 className='categoryHeadline'>What is your event about?</h2>
 
             <textarea 
-			 class='formInput' 
+			 className='formInput' 
 			 type="text" 
 			 name="description" 
 			 id="description" 
@@ -370,7 +369,7 @@ export default function AddPublicEvent() {
 
             
 			<input 
-			class='formInput'
+			className='formInput'
 			  id='price'
 			  type='number'
 			  value={price}
@@ -379,7 +378,7 @@ export default function AddPublicEvent() {
 			 />
 
 
-			 <button class='details-btn' type='submit'>Add Event</button>
+			 <button className='details-btn' type='submit'>Add Event</button>
 
 		  </form>
         

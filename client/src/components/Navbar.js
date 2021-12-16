@@ -11,38 +11,38 @@ export default function EventCard() {
 // console.log('user', user)
 
 	return (
-		<div class='navbar'>
+		<div className='navbar'>
 
-         <Link class='logo' to={'/home'}>
+         <Link className='logo' to={'/home'}>
          <box-icon type='solid' name='network-chart' size='lg' color='#ffffff'></box-icon>Flipper
         </Link>
 
-        <Link class='details-link' to={'/home'}>
-			Home <box-icon class='icons' name='home' type='solid' color='#ffffff'  ></box-icon>
+        <Link className='details-link' to={'/'}>
+			Home <box-icon className='icons' name='home' type='solid' color='#ffffff'  ></box-icon>
         </Link>
 
-        <Link class='details-link' to={'/events'}>
-			Search <box-icon class='icons' name='search' type='solid' color='#ffffff' ></box-icon>
+        <Link className='details-link' to={'/events'}>
+			Search <box-icon className='icons' name='search' type='solid' color='#ffffff' ></box-icon>
         </Link>
 
-        <Link class='details-link' to={'/flipper'}>
-			Flipper <box-icon class='icons' name='wink-tongue' color='#ffffff'></box-icon>
+        <Link className='details-link' to={'/flipper'}>
+			Flipper <box-icon className='icons' name='wink-tongue' color='#ffffff'></box-icon>
         </Link>
 
-        <Link class='details-link' to={'/calendar'}>
-			Calendar<box-icon class='icons' name='calendar' type='solid' color='#ffffff' ></box-icon>
+        <Link className='details-link' to={'/calendar'}>
+			Calendar<box-icon className='icons' name='calendar' type='solid' color='#ffffff' ></box-icon>
         </Link>
 
-        <Link class='details-link' to={'/favorites'}>
-			Favorites <box-icon class='icons' name='star' type='solid' color='#ffffff' ></box-icon>
+        <Link className='details-link' to={'/favorites'}>
+			Favorites <box-icon className='icons' name='star' type='solid' color='#ffffff' ></box-icon>
         </Link>
 
-        <Link class='details-link' to={'/messages'}>
-			Messages<box-icon class='icons' type='solid' name='message-rounded-dots' color='#ffffff'></box-icon>
+        <Link className='details-link' to={'/messages'}>
+			Messages<box-icon className='icons' type='solid' name='message-rounded-dots' color='#ffffff'></box-icon>
         </Link>
         
-        <Link class='details-link' to={'/create'}>
-			Create an Event<box-icon class='icons' type='solid' name='plus-circle' color='#ffffff'></box-icon>
+        <Link className='details-link' to={'/create'}>
+			Create an Event<box-icon className='icons' type='solid' name='plus-circle' color='#ffffff'></box-icon>
         </Link>
 
         
@@ -51,16 +51,16 @@ export default function EventCard() {
 {isLoggedIn ?(
     <>
 
-        <button class='details-button' onClick={logoutUser}>
-        Logout<box-icon class='icons' name='log-out' type='solid' color='#ffffff' ></box-icon>
+        <button className='details-button' onClick={logoutUser}>
+        Logout<box-icon className='icons' name='log-out' type='solid' color='#ffffff' ></box-icon>
         </button>   
 	</>
 ):(
     <>
     
 
-        <Link class='details-link' to={'/login'}>
-			Login/Signup <box-icon class='icons' type='solid' name='log-in' color='#ffffff'></box-icon>
+        <Link className='details-link' to={'/login'}>
+			Login/Signup <box-icon className='icons' type='solid' name='log-in' color='#ffffff'></box-icon>
         </Link>
         </>
 )}

@@ -25,10 +25,10 @@ export default function Search() {
 		
 			<h1>All the Events</h1>
 
-			<div class='order'>
-			<div class='flex'>
+			<div className='order'>
+			<div className='flex'>
 
-			<SearchForm class='searchForm'
+			<SearchForm className='searchForm'
 			searchDate={searchDate}
 			searchCity={searchCity}
 			setSearchCity={setSearchCity} 
@@ -43,7 +43,7 @@ export default function Search() {
 			setSearchEducationGenre={setSearchEducationGenre}
 			setSearchEducationType={setSearchEducationType}
 			/>
-           <div class='eventCardOrder'>
+           <div className='eventCardOrder'>
             <EventCard
 			searchCity={searchCity} 
 			searchDate={searchDate} 

@@ -15,17 +15,17 @@ export default function CreateEvent() {
 	return (
 		<>
 		<h1 color='white'>Events</h1>
-		<div class='switchSection'>
-		<div class='switchBar'>
+		<div className='switchSection'>
+		<div className='switchBar'>
 		
-        <Link class='switchBarLinkOff' to={'/calendar/my'}>
+        <Link className='switchBarLinkOff' to={'/calendar/my'}>
 
 			My Events
             
             
         </Link>
 
-		<Link class='switchBarLinkOn' to={'/calendar/attending'}>
+		<Link className='switchBarLinkOn' to={'/calendar/attending'}>
            
              Attending Events 
               
@@ -35,9 +35,9 @@ export default function CreateEvent() {
 		</div>
 
         
-		<div class='myEventCardOrder'>
+		<div className='myEventCardOrder'>
 		
-		<MyEventCard  class='eventCardOrder'/>
+		<MyEventCard  className='eventCardOrder'/>
 		
 		</div>
 		

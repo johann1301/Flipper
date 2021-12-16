@@ -41,31 +41,31 @@ export default function EventCard(props) {
  
 	return (
 		
-  <div class='eventCard'>
+  <div key={event._id} className='eventCard'>
 
   <Link to={`/events/${event._id}`}>
   
-  <p class='userName'><box-icon type='solid' name='user-circle'></box-icon>{user.name}</p>
+  <p className='userName'><box-icon type='solid' name='user-circle'></box-icon>{user.name}</p>
 
-  <div class='inCard'>
+  <div className='inCard'>
   
-  <div class='titleContainer'>
-  <img class='titleImg' src={event.imageUrl} alt={event.title} width="250" height="130"></img>
+  <div className='titleContainer'>
+  <img className='titleImg' src={event.imageUrl} alt={event.title} width="250" height="130"></img>
 
-  <h3 class='cardTitle'>{event.title}</h3>
+  <h3 className='cardTitle'>{event.title}</h3>
   </div>
-    <div class='cardInfoBox'>
+    <div className='cardInfoBox'>
 
      
 
-	 <div class='directInfoOne'>
+	 <div className='directInfoOne'>
 
 	 <div>
-      <p class='cardInfoOne'>{event.date} {event.time}PM</p>
+      <p className='cardInfoOne'>{event.date} {event.time}PM</p>
      </div>
 
      <div>
-      <p class='cardInfoTwo'>
+      <p className='cardInfoTwo'>
         {event.options.music.musicType} 
         {event.options.culture.cultureType} 
         {event.options.sport.sportType} 
@@ -76,14 +76,14 @@ export default function EventCard(props) {
 
 	 </div>
 
-	 <div class='directInfoTwo'>
+	 <div className='directInfoTwo'>
 
 	 <div>
-	  <p class='cardInfoThree'><box-icon name='map'></box-icon>{event.address.city}</p>
+	  <p className='cardInfoThree'><box-icon name='map'></box-icon>{event.address.city}</p>
      </div>
 
 	 <div>
-      <p class='cardInfoFour'>
+      <p className='cardInfoFour'>
         {event.options.music.musicGenre} 
         {event.options.culture.cultureGenre} 
         {event.options.sport.sportGenre} 
@@ -106,8 +106,8 @@ export default function EventCard(props) {
 
 if (list.length === 0) {
   return (
-  <div class='myButtonDirection'>
-    <Link class='createButton' to={`/create`}>
+  <div className='myButtonDirection'>
+    <Link className='createButton' to={`/create`}>
 		Creat an event +
     </Link>
   </div>
@@ -115,7 +115,7 @@ if (list.length === 0) {
 }
 return (
   <>
-  <div class='myList'>
+  <div className='myList'>
   {list}
   </div>
   </>

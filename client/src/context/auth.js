@@ -29,7 +29,7 @@ function AuthProviderWrapper(props) {
 		if (storedToken) {
 			axios.get('/auth/verify', { headers: { Authorization: `Bearer ${storedToken}` } })
 				.then(response => {
-					console.log(response)
+				
 					const user = response.data
 					setUser(user)
 					setIsLoggedIn(true)

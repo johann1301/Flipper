@@ -37,26 +37,26 @@ export default function Signup() {
 	return (
 
 		<>
-		<div class='loginBox'>
+		<div className='loginBox'>
 			
-		<div class='switchBox'>
+		<div className='switchBox'>
 
-		<Link class='startSwitchBox' to='/login'><h1>Login</h1></Link>
+		<Link className='startSwitchBox' to='/login'><h1>Login</h1></Link>
 
-            <form class='startForm' onSubmit={handleSubmit}>
+            <form className='startForm' onSubmit={handleSubmit}>
 
-			    <h1 class='addressHeadline'>Signup </h1>
+			    <h1 className='addressHeadline'>Signup </h1>
 
-				<input class="formInput" type="text" name="email" value={email} onChange={handleEmail} placeholder='Email'/>
+				<input className="formInput" type="text" name="email" value={email} onChange={handleEmail} placeholder='Email'/>
 				
-				<input class="formInput" type="password" value={password} onChange={handlePassword} placeholder='Password'/>
+				<input className="formInput" type="password" value={password} onChange={handlePassword} placeholder='Password'/>
 				
-				<input class="formInput" type="text" value={name} onChange={handleName} placeholder='Name'/>
+				<input className="formInput" type="text" value={name} onChange={handleName} placeholder='Name'/>
 
-                <label class='addressHeadline'>Birthday: </label>
-				<input class="formInput" type="date" value={birthday} onChange={handleBirthday} />
+                <label className='addressHeadline'>Birthday: </label>
+				<input className="formInput" type="date" value={birthday} onChange={handleBirthday} />
 
-				<button class='details-btn' type="submit">Sign Up</button>
+				<button className='details-btn' type="submit">Sign Up</button>
             </form> 
               
          </div>

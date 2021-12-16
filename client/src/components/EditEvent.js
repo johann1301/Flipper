@@ -17,7 +17,6 @@ export default function EditProject() {
 	const [musicType, setMusicType] = useState('')
 	const [cultureGenre, setCultureGenre] = useState('')
 	const [cultureType, setCultureType] = useState('')
-	const [sportGenre, setSportGenre] = useState('')
 	const [sportType, setSportType] = useState('')
 	const [educationGenre, setEducationGenre] = useState('')
 	const [educationType, setEducationType] = useState('')
@@ -37,7 +36,7 @@ export default function EditProject() {
 			.then(response => {
 				const { imageUrl, title, date, time, address:{ street, number, zipcode, 
                     city }, category, options: { music: { musicGenre, musicType }, culture:{ cultureGenre, cultureType }, 
-                    sport: { sportGenre, sportType }, education: { educationGenre, educationType }, other: { other } },
+                    sport: { sportType }, education: { educationGenre, educationType }, other: { other } },
                     description, price } = response.data
 				setImageUrl(imageUrl)
                 setTitle(title)
@@ -108,7 +107,7 @@ export default function EditProject() {
 		e.preventDefault()
 		const requestBody = { imageUrl, title, date, time, address:{ street, number, zipcode, 
             city }, category, options: { music: { musicGenre, musicType }, culture:{ cultureGenre, cultureType }, 
-            sport: { sportGenre, sportType }, education: { educationGenre, educationType }, other: { other } },
+            sport: { sportType }, education: { educationGenre, educationType }, other: { other } },
             description, price }
 
 		axios.put(`/api/events/${id}`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` } })
@@ -118,27 +117,19 @@ export default function EditProject() {
 			})
 	}
 
-	const deleteProject = () => {
-		axios.delete(`/api/projects/${id}`)
-			.then(() => {
-				// redirect to the projects list 
-				navigate('/projects')
-			})
-			.catch(err => console.log(err))
-	}
 
 	return (
 		<div >
 
           
 
-		  <form class='form' onSubmit={handleSubmit} enctype="multipart/form-data">
-		    <h1 class='createHeadline'>Edit public event</h1>
+		  <form className='form' onSubmit={handleSubmit} enctype="multipart/form-data">
+		    <h1 className='createHeadline'>Edit public event</h1>
 
-			<h2 class='pictreHeadline'>Title picture:</h2>
+			<h2 className='pictreHeadline'>Title picture:</h2>
 
 			<input
-          class="formInput"
+          className="formInput"
           name="imageUrl"
           type="file"
           //   value={imageUrl}
@@ -147,7 +138,7 @@ export default function EditProject() {
         />
             
 			<input 
-			class='formInput'
+			className='formInput'
 			  id='title'
 			  type='text'
 			  value={title}
@@ -157,7 +148,7 @@ export default function EditProject() {
 
 			
 			<input 
-			class='formInput'
+			className='formInput'
 			  id='date'
 			  type='date'
 			  value={date}
@@ -167,7 +158,7 @@ export default function EditProject() {
 
             
 			<input 
-			class='formInput'
+			className='formInput'
 			  id='time'
 			  type='time'
 			  value={time}
@@ -175,13 +166,13 @@ export default function EditProject() {
 			  onChange={e => setTime(e.target.value)}
 			 />
 
-			 <h2 class='addressHeadline'>Address:</h2>
+			 <h2 className='addressHeadline'>Address:</h2>
 
-          <div class='addAddress'>
+          <div className='addAddress'>
 
             
 			<input 
-			class='formInput'
+			className='formInput'
 			  id='street'
 			  type='text'
 			  value={street}
@@ -191,7 +182,7 @@ export default function EditProject() {
 
             
 			<input 
-			class='formInputNum'
+			className='formInputNum'
 			  id='number'
 			  type='number'
 			  value={number}
@@ -201,11 +192,11 @@ export default function EditProject() {
 
           </div>
 
-		  <div class='addAddress'>
+		  <div className='addAddress'>
 
             
 			<input 
-			class='formInputNum'
+			className='formInputNum'
 			  id='zipcode'
 			  type='number'
 			  value={zipcode}
@@ -214,7 +205,7 @@ export default function EditProject() {
 			 />
 
 			<input 
-			class='formInput'
+			className='formInput'
 			  id='city'
 			  type='text'
 			  value={city}
@@ -224,16 +215,16 @@ export default function EditProject() {
 
           </div>
 
-		  <h2 class='categoryHeadline'>What kind of event are you hosting?</h2>
+		  <h2 className='categoryHeadline'>What kind of event are you hosting?</h2>
            
-		    <select class='formInput' onChange={onChangeHandeler} name="category" value={category}>
+		    <select className='formInput' onChange={onChangeHandeler} name="category" value={category}>
 		
-		       <option class='selector' value="">-Category-</option>
-		       <option class='selector' value="music">Music</option>
-		       <option class='selector' value="culture">Culture</option>
-		       <option class='selector' value="sport">Sport</option>
-		       <option class='selector' value="education">Education</option>
-		       <option class='selector' value="other">Other</option>
+		       <option className='selector' value="">-Category-</option>
+		       <option className='selector' value="music">Music</option>
+		       <option className='selector' value="culture">Culture</option>
+		       <option className='selector' value="sport">Sport</option>
+		       <option className='selector' value="education">Education</option>
+		       <option className='selector' value="other">Other</option>
 		       
 	
             </select>
@@ -245,33 +236,33 @@ export default function EditProject() {
 			
             <div >
 
-			<select class='formInput' onChange={e => setMusicGenre(e.target.value)} name="musicGenre" value={musicGenre}>
+			<select className='formInput' onChange={e => setMusicGenre(e.target.value)} name="musicGenre" value={musicGenre}>
 		
-		       <option class='selector' value="">-Genre-</option>
-		       <option class='selector' value="techno">Techno</option>
-		       <option class='selector' value="house">House</option>
-		       <option class='selector' value="hip hop">Hip Hop</option>
-		       <option class='selector' value="rock">Rock</option>
-		       <option class='selector' value="r&b">R&B</option>
-			   <option class='selector' value="pop">Pop</option>
-		       <option class='selector' value="old school">Old School</option>
-		       <option class='selector' value="classic">Classic</option>
-		       <option class='selector' value="schlager">Schlager</option>
-		       <option class='selector' value="other">Other</option>
+		       <option className='selector' value="">-Genre-</option>
+		       <option className='selector' value="techno">Techno</option>
+		       <option className='selector' value="house">House</option>
+		       <option className='selector' value="hip hop">Hip Hop</option>
+		       <option className='selector' value="rock">Rock</option>
+		       <option className='selector' value="r&b">R&B</option>
+			   <option className='selector' value="pop">Pop</option>
+		       <option className='selector' value="old school">Old School</option>
+		       <option className='selector' value="classic">Classic</option>
+		       <option className='selector' value="schlager">Schlager</option>
+		       <option className='selector' value="other">Other</option>
 		       
 		       
 	
             </select>
 
-			<select class='formInput' onChange={e => setMusicType(e.target.value)} name="musicType" value={musicType}>
+			<select className='formInput' onChange={e => setMusicType(e.target.value)} name="musicType" value={musicType}>
 		
-		        <option class='selector' value="">-Type-</option>
-		        <option class='selector' value="club">Club</option>
-		        <option class='selector' value="bar">Bar</option>
-		        <option class='selector' value="open air">Open Air</option>
-		        <option class='selector' value="festival">Festival</option>
-		        <option class='selector' value="concert">Concert</option>
-		        <option class='selector' value="other">Other</option>
+		        <option className='selector' value="">-Type-</option>
+		        <option className='selector' value="club">Club</option>
+		        <option className='selector' value="bar">Bar</option>
+		        <option className='selector' value="open air">Open Air</option>
+		        <option className='selector' value="festival">Festival</option>
+		        <option className='selector' value="concert">Concert</option>
+		        <option className='selector' value="other">Other</option>
 		
 	        </select>
 
@@ -281,30 +272,30 @@ export default function EditProject() {
 			{category === 'culture' &&
                 <div>
 
-				<select class='formInput' onChange={e => setCultureType(e.target.value)} name="cultureGenre" value={cultureType}>
+				<select className='formInput' onChange={e => setCultureType(e.target.value)} name="cultureGenre" value={cultureType}>
 		
-		            <option class='selector' value="">-Type-</option>
-		            <option class='selector' value="museum">Museum</option>
-		            <option class='selector' value="gallery">Gallery</option>
-		            <option class='selector' value="theater">Theater</option>
-		            <option class='selector' value="movies">Movies</option>
-		            <option class='selector' value="books">Books</option>
-			        <option class='selector' value="fashion">Fashion</option>
-		            <option class='selector' value="exhibition">Exhibition</option>
-		            <option class='selector' value="other">Other</option>
+		            <option className='selector' value="">-Type-</option>
+		            <option className='selector' value="museum">Museum</option>
+		            <option className='selector' value="gallery">Gallery</option>
+		            <option className='selector' value="theater">Theater</option>
+		            <option className='selector' value="movies">Movies</option>
+		            <option className='selector' value="books">Books</option>
+			        <option className='selector' value="fashion">Fashion</option>
+		            <option className='selector' value="exhibition">Exhibition</option>
+		            <option className='selector' value="other">Other</option>
 		        
                 </select>
 
 
 				
-				<select class='formInput' onChange={e => setCultureGenre(e.target.value)} name="cultureType" value={cultureGenre}>
+				<select className='formInput' onChange={e => setCultureGenre(e.target.value)} name="cultureType" value={cultureGenre}>
 
-		            <option class='selector' value="">-Genre-</option>
-		            <option class='selector' value="history">History</option>
-		            <option class='selector' value="modern">Modern</option>
-		            <option class='selector' value="pop culture">Pop Culture</option>
-		            <option class='selector' value="future">Future</option>
-		            <option class='selector' value="other">Other</option>
+		            <option className='selector' value="">-Genre-</option>
+		            <option className='selector' value="history">History</option>
+		            <option className='selector' value="modern">Modern</option>
+		            <option className='selector' value="pop culture">Pop Culture</option>
+		            <option className='selector' value="future">Future</option>
+		            <option className='selector' value="other">Other</option>
 			       
 				</select>
 
@@ -315,15 +306,15 @@ export default function EditProject() {
             {category === 'sport' &&
                 <div>
 
-				<select class='formInput' onChange={e => setSportType(e.target.value)} name="sportType" value={sportType}>
+				<select className='formInput' onChange={e => setSportType(e.target.value)} name="sportType" value={sportType}>
 		
-				<option class='selector' value="">-Type-</option>
-		            <option class='selector' value="ball sport">Ball Sport</option>
-		            <option class='selector' value="cardio">Cardio</option>
-		            <option class='selector' value="yoga">Yoga</option>
-		            <option class='selector' value="weights training">Weights Training</option>
-		            <option class='selector' value="chess">Chess</option>
-					<option class='selector' value="other">Other</option>
+				<option className='selector' value="">-Type-</option>
+		            <option className='selector' value="ball sport">Ball Sport</option>
+		            <option className='selector' value="cardio">Cardio</option>
+		            <option className='selector' value="yoga">Yoga</option>
+		            <option className='selector' value="weights training">Weights Training</option>
+		            <option className='selector' value="chess">Chess</option>
+					<option className='selector' value="other">Other</option>
 			       
 				</select>
 
@@ -334,28 +325,28 @@ export default function EditProject() {
             {category === 'education' &&
                 <div>
 
-				<select class='formInput' onChange={e => setEducationGenre(e.target.value)} name="educationGenre" value={educationGenre}>
+				<select className='formInput' onChange={e => setEducationGenre(e.target.value)} name="educationGenre" value={educationGenre}>
 				    
-					<option class='selector' value="">-Branch-</option>
-		            <option class='selector' value="economy">Economy</option>
-		            <option class='selector' value="politics">Politics</option>
-		            <option class='selector' value="environment">Environment</option>
-		            <option class='selector' value="marketing">Marketing</option>
-		            <option class='selector' value="information technology">Information Technology</option>
-					<option class='selector' value="other">Other</option>
+					<option className='selector' value="">-Branch-</option>
+		            <option className='selector' value="economy">Economy</option>
+		            <option className='selector' value="politics">Politics</option>
+		            <option className='selector' value="environment">Environment</option>
+		            <option className='selector' value="marketing">Marketing</option>
+		            <option className='selector' value="information technology">Information Technology</option>
+					<option className='selector' value="other">Other</option>
 		            
 				</select>
 
 
-				<select class='formInput' onChange={e => setEducationType(e.target.value)} name="educationType" value={educationType}>
+				<select className='formInput' onChange={e => setEducationType(e.target.value)} name="educationType" value={educationType}>
 				    
-					<option class='selector' value="">-Type-</option>
-		            <option class='selector' value="lecture">Lecture</option>
-		            <option class='selector' value="discussion">Discussion</option>
-		            <option class='selector' value="continuing education">Continuing education</option>
-		            <option class='selector' value="bootcamp">Bootcamp</option>
-		            <option class='selector' value="open house">Open House</option>
-					<option class='selector' value="other">Other</option>
+					<option className='selector' value="">-Type-</option>
+		            <option className='selector' value="lecture">Lecture</option>
+		            <option className='selector' value="discussion">Discussion</option>
+		            <option className='selector' value="continuing education">Continuing education</option>
+		            <option className='selector' value="bootcamp">Bootcamp</option>
+		            <option className='selector' value="open house">Open House</option>
+					<option className='selector' value="other">Other</option>
 		            
 			       
 				</select>
@@ -368,7 +359,7 @@ export default function EditProject() {
             {category === 'other' &&
                 <div>
 			        <input 
-			         class='formInput'
+			         className='formInput'
 			         id='other'
 			         type='text'
 			         value={other}
@@ -378,10 +369,10 @@ export default function EditProject() {
 			    </div>
             }
 
-			<h2 class='categoryHeadline'>What is your event about?</h2>
+			<h2 className='categoryHeadline'>What is your event about?</h2>
 
             <textarea 
-			 class='formInput' 
+			 className='formInput' 
 			 type="text" 
 			 name="description" 
 			 id="description" 
@@ -395,7 +386,7 @@ export default function EditProject() {
 
             
 			<input 
-			class='formInput'
+			className='formInput'
 			  id='price'
 			  type='number'
 			  value={price}
@@ -404,7 +395,7 @@ export default function EditProject() {
 			 />
 
 
-			 <button class='details-btn' type='submit'>Add Event</button>
+			 <button className='details-btn' type='submit'>Add Event</button>
 
 		  </form>
         
